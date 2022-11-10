@@ -1,0 +1,38 @@
+---
+const links = [
+  ['Home', ''],
+  ['Technische Daten', 'features'],
+  ['Zubehör', 'addons'],
+  ['Über uns', 'about'],
+  ['Kontakt', 'contact']
+]
+---
+{links.map(([title, target]) => (
+  <li class="flex flex-col items-center">
+    <a href={`#${target}`} class="leading-none">{title}</a>
+    <div class="relative w-full flex justify-center">
+      <hr class="absolute w-full top-0">
+      <div class="dot absolute mx-auto border-4 rounded-[50%] mt-2"></div>
+    </div>
+  </li>
+))}
+
+<style>
+  li {
+    &.active {
+      @apply text-red-600 border-red-600;
+    }
+
+    * {
+      border-color: inherit;
+    }
+
+    .dot {
+      @apply transition-all;
+    }
+
+    &:not(.active):not(:hover) .dot {
+      @apply scale-0;
+    }
+  }
+</style>
