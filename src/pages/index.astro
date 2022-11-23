@@ -6,6 +6,7 @@ import ProduktFeatures from '../sections/produkt-features.astro';
 import TechnischeDaten from '../sections/technische-daten.astro';
 import FlameLogo from '../components/BlacksmocianLogo.astro';
 import CrossedKnifes from '../components/CrossedKnifes.astro';
+import Herstellung from '../sections/herstellung.astro';
 ---
 <BaseLayout>
   <div class={`[--sections:7] relative grid grid-cols-[150px,175px,auto,175px] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-16`}>
@@ -58,7 +59,7 @@ import CrossedKnifes from '../components/CrossedKnifes.astro';
     </div>
 
     <section id="production" class="row-start-5 col-start-3 pt-40">
-      <h2>Herstellung</h2>
+      <Herstellung></Herstellung>
     </section>
 
     <section id="addons" class="row-start-6 col-start-3 pt-40">
