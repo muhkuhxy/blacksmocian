@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../sections/hero.astro';
 import ProduktFeatures from '../sections/produkt-features.astro';
 import TechnischeDaten from '../sections/technische-daten.astro';
+import FlameLogo from '../components/BlacksmocianLogo.astro';
 ---
 <BaseLayout>
   <div class={`[--sections:6] relative grid grid-cols-[150px,175px,auto,175px] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-16`}>
@@ -12,9 +13,12 @@ import TechnischeDaten from '../sections/technische-daten.astro';
       <ul class="flex justify-between w-full uppercase">
         <NavLinks></NavLinks>
       </ul>
+      <div class="absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem]">
+        <FlameLogo></FlameLogo>
+      </div>
     </nav>
 
-    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 font-bold rotate-180 pin uppercase">
+    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin uppercase">
       Hol dir hier deinen Smoker!
     </a>
     <svg id="cta-arrow"
@@ -22,7 +26,7 @@ import TechnischeDaten from '../sections/technische-daten.astro';
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
       viewBox="0 0 100 100">
-      <g stroke-width="2" stroke-dasharray="5,7" stroke-dashoffset="0" stroke-linecap="square">
+      <g stroke-width="4" stroke-dasharray="6,12" stroke-dashoffset="0" stroke-linecap="square">
         <polyline points="0,0 0,100" vector-effect="non-scaling-stroke"/>
         <path d="M0,100 L,0 0,100" vector-effect="non-scaling-stroke"/>
       </g>
@@ -66,7 +70,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 ScrollTrigger.create({
-  trigger: 'svg',
+  trigger: '#cta-arrow',
   pin: '.pin',
   start: 'top top',
   end: 'bottom bottom',

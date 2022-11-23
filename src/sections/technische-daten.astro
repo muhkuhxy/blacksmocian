@@ -1,3 +1,8 @@
+---
+import SmokeLines from "../components/SmokeLines.astro";
+
+---
+
 <div class="absolute inset-x-0 h-[25vh] bg-center bg-cover [background-image:url(/images/log.jpg)] -z-10">
 </div>
 <div class="grid grid-cols-2 grid-rows-[auto,auto,1fr] grid-cols-[1.25fr,7rem,1fr,8rem] mt-[30vh] gap-y-16 [--padding:2rem]">
@@ -11,6 +16,9 @@
   </figure>
   <h2 class="row-start-1 col-start-1 relative col-span-3 justify-self-end steel text-9xl">
     Technische Daten
+    <div class="w-16 absolute left-0 top-0 -translate-x-8 translate-y-[-150%]">
+      <SmokeLines></SmokeLines>
+    </div>
   </h2>
   <p class="row-start-2 col-start-3 pl-[var(--padding)]">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt nobis, reprehenderit exercitationem itaque soluta non quae eligendi commodi illo quod vitae quas culpa quasi consequatur dolore! Voluptate ducimus reprehenderit similique!
