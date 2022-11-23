@@ -1,4 +1,5 @@
 ---
+import SlideBox from "../components/SlideBox.astro";
 const images = [
   "smoker_features_1.jpg",
   "smoker_features_1.jpg",
@@ -11,18 +12,7 @@ const images = [
 <div class="features col-start-3 grid grid-cols-2 gap-4">
   {
     images.map((img) => (
-      <figure class="grid grid-rows-1 grid-cols-1 truncate">
-        <img class="[grid-area:1/1/-1/-1]" src={`/images/${img}`} />
-        <div class="[grid-area:1/1/-1/-1] steel place-self-end m-4 p-1 border-[6px] rounded-full grid place-items-center text-7xl aspect-square transition-transform leading-[0]">
-          <button class="relative bottom-[4px]">+</button>
-        </div>
-        <figcaption class="[grid-area:1/1/-1/-1] translate-y-full">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi,
-          deleniti qui. Ullam voluptate deserunt vel labore dicta modi, autem in
-          perspiciatis aliquam blanditiis eaque officia. Nemo accusamus dolorem
-          quis doloribus?
-        </figcaption>
-      </figure>
+      <SlideBox img={img}></SlideBox>
     ))
   }
 </div>

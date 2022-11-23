@@ -1,0 +1,23 @@
+---
+interface Props {
+  img: string
+}
+const { img } = Astro.props
+---
+<figure class="grid grid-rows-1 grid-cols-1 overflow-hidden" x-data="{ open: false }">
+  <img class="[grid-area:1/1]" src={`/images/${img}`}>
+  <figcaption class="[grid-area:1/1] flex flex-col p-24 space-y-6 bg-black justify-center bg-opacity-70 transition-transform duration-1000 translate-y-full" x-bind:class="open && 'translate-y-0'">
+    <h4 class="steel text-5xl text-spark">Lorem Ipsum</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, deleniti
+      qui. Ullam voluptate deserunt vel labore dicta modi, autem in perspiciatis
+      aliquam blanditiis eaque officia. Nemo accusamus dolorem quis doloribus?
+    </p>
+  </figcaption>
+  <div
+    class="[grid-area:1/1] steel place-self-end m-4 p-1 border-[6px] rounded-full grid place-items-center text-7xl aspect-square transition-transform leading-[0] origin-center duration-1000"
+    x-bind:class="open && 'rotate-[225deg]'"
+    x-on:click="open = !open">
+    <button class="relative bottom-[4px]">+</button>
+  </div>
+</figure>
