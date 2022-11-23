@@ -1,43 +1,50 @@
 <div class="absolute inset-x-0 h-[25vh] bg-center bg-cover [background-image:url(/images/log.jpg)] -z-10">
 </div>
-<div class="grid grid-cols-2 grid-rows-[auto,1fr] mt-[30vh] gap-x-16 gap-y-8">
-  <figure class="row-start-1 row-span-2 col-start-1 grid [grid-template:1fr/1fr] -mt-24 h-fit">
-    <img src="/images/smoker_features_1.jpg" class="object-cover [grid-area:1/1/-1/-1]">
-    <figcaption class="text-xl [grid-area:1/1/-1/-1] place-self-end pr-4 translate-y-[2.3rem] text-ember">
+<div class="grid grid-cols-2 grid-rows-[auto,auto,1fr] grid-cols-[1.25fr,7rem,1fr,8rem] mt-[30vh] gap-y-16 [--padding:2rem]">
+  <figure class="row-start-1 row-span-full col-start-1 grid [grid-template:1fr/1fr] -mt-24 h-min">
+    <picture class="[grid-area:1/1/-1/-1] relative shadow after:absolute after:inset-0 after:top-0.5 after:bg-gradient-to-t after:from-black after:opacity-50">
+      <img src="/images/smoker_features_1.jpg" class="object-cover">
+    </picture>
+    <figcaption class="[grid-area:1/1/-1/-1] place-self-end pr-[1em] translate-y-[3.2rem] cursive text-ember text-4xl">
       Gebaut um ein<br>Leben lang zu halten
     </figcaption>
   </figure>
-  <h2 class="row-start-1 col-start-1 col-span-2 justify-self-end steel text-8xl">
+  <h2 class="row-start-1 col-start-1 relative col-span-3 justify-self-end steel text-9xl">
     Technische Daten
   </h2>
-  <div class="row-start-2 col-start-2 space-y-8 [--padding:1.5rem]">
-    <p class="pl-[var(--padding)]">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt nobis, reprehenderit exercitationem itaque soluta non quae eligendi commodi illo quod vitae quas culpa quasi consequatur dolore! Voluptate ducimus reprehenderit similique!
-    </p>
-    <table class="border-white">
-      <tbody>
-        <tr>
-          <th>Maße</th>
-          <td>1.800mm x 850mm x 2.100mm (LxBxH)</td>
-        </tr>
-        <tr>
-          <th>Gewicht</th>
-          <td>ca. 225 kg</td>
-        </tr>
-        <tr>
-          <th>Material</th>
-          <td>hochwertiger Edelstahl</td>
-        </tr>
-        <tr>
-          <th>Lorem</th>
-          <td>psum dolor sit amet</td>
-        </tr>
-        <tr>
-          <th>Ipsum</th>
-          <td>adipisicing elit</td>
-        </tr>
-      </tbody>
-    </table>
+  <p class="row-start-2 col-start-3 pl-[var(--padding)]">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt nobis, reprehenderit exercitationem itaque soluta non quae eligendi commodi illo quod vitae quas culpa quasi consequatur dolore! Voluptate ducimus reprehenderit similique!
+  </p>
+  <table class="row-start-3 col-start-3 border-white">
+    <tbody>
+      <tr>
+        <th>Maße</th>
+        <td>1.800mm x 850mm x 2.100mm (LxBxH)</td>
+      </tr>
+      <tr>
+        <th>Gewicht</th>
+        <td>ca. 225 kg</td>
+      </tr>
+      <tr>
+        <th>Material</th>
+        <td>hochwertiger Edelstahl</td>
+      </tr>
+      <tr>
+        <th>Lorem</th>
+        <td>psum dolor sit amet</td>
+      </tr>
+      <tr>
+        <th>Ipsum</th>
+        <td>adipisicing elit</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row-start-3 col-start-4 flex flex-col justify-center items-center space-y-1">
+    {
+      [...Array(6)].map(_ => (
+        <div class="border-4 rounded-full"></div>
+      ))
+    }
   </div>
 </div>
 

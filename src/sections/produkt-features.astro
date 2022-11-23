@@ -7,15 +7,15 @@ const images = [
 ];
 ---
 
-<h2 class="col-start-3 font-steel">Produktfeatures</h2>
+<h3 class="col-start-3 font-steel steel text-7xl">Produktfeatures</h3>
 <div class="features col-start-3 grid grid-cols-2 gap-4">
   {
     images.map((img) => (
       <figure class="grid grid-rows-1 grid-cols-1 truncate">
         <img class="[grid-area:1/1/-1/-1]" src={`/images/${img}`} />
-        <button class="[grid-area:1/1/-1/-1] place-self-end transition-transform">
-          Plus
-        </button>
+        <div class="[grid-area:1/1/-1/-1] steel place-self-end m-4 p-1 border-[6px] rounded-full grid place-items-center text-7xl aspect-square transition-transform leading-[0]">
+          <button class="relative bottom-[4px]">+</button>
+        </div>
         <figcaption class="[grid-area:1/1/-1/-1] translate-y-full">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi,
           deleniti qui. Ullam voluptate deserunt vel labore dicta modi, autem in
@@ -28,7 +28,4 @@ const images = [
 </div>
 
 <script>
-  //     document.querySelectorAll('.features [data-role=toggler]').forEach(el => el.addEventListener('click', event => {
-
-  //     }))
 </script>

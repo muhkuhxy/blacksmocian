@@ -4,8 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ember: 'rgb(227, 69, 44)',
-        spark: 'rgb(255, 174, 0)',
+        coal: '#18131e',
+        spark: '#ffae00',
+        ember: '#e3452c',
+      },
+      boxShadow: {
+        DEFAULT: '10px 10px 30px black'
       }
     },
   },

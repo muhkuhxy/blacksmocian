@@ -8,6 +8,34 @@
     src: url('/fonts/Steelworks vintage.otf');
   }
 
+  @font-face {
+    font-family: Nickainley;
+    src: url('/fonts/Nickainley.otf');
+  }
+
+  @font-face {
+    font-family: Quicksand;
+    src: url('/fonts/Quicksand.ttf');
+  }
+
+  :root {
+    font-family: Quicksand, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    min-height: 100vh;
+  }
+}
+
+/* @layer components {
+  h2.steel {
+    @apply text-9xl;
+  }
+} */
+
+
+@layer utilities {
   .steel {
     font-family: Steelworks, sans-serif;
 
@@ -16,5 +44,9 @@
 
     /* Safari resize fix */
     /* min-height: 0; */
+  }
+
+  .cursive {
+    font-family: Nickainley, serif;
   }
 }
