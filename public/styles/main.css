@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Steelworks;
+    src: url('/fonts/Steelworks vintage.otf');
+  }
+
+  .steel {
+    font-family: Steelworks, sans-serif;
+
+    /* 1.5rem(24px) @ 23.4375rem(375px) increasing to 2rem(32px) @ 80rem(1280px) */
+    /* font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.234375rem) * 0.884)), 2rem); */
+
+    /* Safari resize fix */
+    /* min-height: 0; */
+  }
+}
+
+

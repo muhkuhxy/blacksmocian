@@ -1,3 +1,26 @@
 ---
-
+const images = [
+    'smoker_features_1.jpg',
+    'smoker_features_1.jpg',
+    'smoker_features_1.jpg',
+    'smoker_features_1.jpg',
+]
 ---
+<h2 class="col-start-3 font-steel">Produktfeatures</h2>
+<div class="features col-start-3 grid grid-cols-2 gap-4">
+    {images.map(img => (
+        <figure class="grid grid-rows-1 grid-cols-1 truncate">
+            <img class="[grid-area:1/1/-1/-1]" src={`/images/${img}`}>
+            <button class="[grid-area:1/1/-1/-1] place-self-end transition-transform">Plus</button>
+            <figcaption class="[grid-area:1/1/-1/-1] translate-y-full">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, deleniti qui. Ullam voluptate deserunt vel labore dicta modi, autem in perspiciatis aliquam blanditiis eaque officia. Nemo accusamus dolorem quis doloribus?
+            </figcaption>
+        </figure>
+    ))}
+</div>
+
+<script>
+//     document.querySelectorAll('.features [data-role=toggler]').forEach(el => el.addEventListener('click', event => {
+        
+//     }))
+</script>
