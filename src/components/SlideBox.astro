@@ -14,10 +14,10 @@ const { img } = Astro.props
       aliquam blanditiis eaque officia. Nemo accusamus dolorem quis doloribus?
     </p>
   </figcaption>
-  <div
-    class="[grid-area:1/1] steel place-self-end m-4 p-1 border-[6px] rounded-full grid place-items-center text-7xl aspect-square transition-transform leading-[0] origin-center duration-1000"
+  <button
+    class="[grid-area:1/1] relative place-self-end m-4 p-1 border-[6px] rounded-full text-7xl aspect-square transition-transform leading-[0] origin-center duration-1000"
     x-bind:class="open && 'rotate-[225deg]'"
     x-on:click="open = !open">
-    <button class="relative bottom-[4px]">+</button>
-  </div>
+    <span class="relative steel bottom-[7px]">+</span>
+  </button>
 </figure>

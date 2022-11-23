@@ -5,24 +5,27 @@ import Hero from '../sections/hero.astro';
 import ProduktFeatures from '../sections/produkt-features.astro';
 import TechnischeDaten from '../sections/technische-daten.astro';
 import FlameLogo from '../components/BlacksmocianLogo.astro';
+import CrossedKnifes from '../components/CrossedKnifes.astro';
 ---
 <BaseLayout>
-  <div class={`[--sections:6] relative grid grid-cols-[150px,175px,auto,175px] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-16`}>
+  <div class={`[--sections:7] relative grid grid-cols-[150px,175px,auto,175px] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-16`}>
 
-    <nav class="row-start-1 col-start-3 flex self-start items-center bg-coal bg-opacity-[.60] px-12 py-16 sticky top-0 z-50">
-      <ul class="flex justify-between w-full uppercase">
-        <NavLinks></NavLinks>
-      </ul>
-      <div class="absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem]">
-        <FlameLogo></FlameLogo>
-      </div>
-    </nav>
+    <div class="row-start-1 col-start-1 col-span-full h-min bg-coal bg-opacity-60 pl-[325px] pr-[175px] sticky top-0 z-50">
+      <nav class="relative flex self-start items-center px-12 py-16">
+        <ul class="flex justify-between w-full uppercase">
+          <NavLinks></NavLinks>
+        </ul>
+        <div class="absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem]">
+          <FlameLogo></FlameLogo>
+        </div>
+      </nav>
+    </div>
 
-    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin uppercase">
+    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin uppercase -z-10">
       Hol dir hier deinen Smoker!
     </a>
     <svg id="cta-arrow"
-      class="[grid-row:1/-2] col-start-2 w-1 h-full justify-self-start stroke-white"
+      class="[grid-row:1/-2] col-start-2 w-1 h-full justify-self-start stroke-white -z-10"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
       viewBox="0 0 100 100">
@@ -38,22 +41,35 @@ import FlameLogo from '../components/BlacksmocianLogo.astro';
 
     <section id="data" class="row-start-3 col-start-3">
       <TechnischeDaten></TechnischeDaten>
+      <div class="h-24"></div>
       <ProduktFeatures></ProduktFeatures>
     </section>
 
-    <section id="production" class="row-start-4 col-start-3 pt-40">
+    <div class="row-start-4 col-start-1 col-span-4 my-64 grid grid-rows-1 grid-cols-1 relative">
+      <picture class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
+        <img class="w-full h-[80vh] object-cover" src="/images/blacksmocian-edit-1-1101.jpg">
+      </picture>
+      <div class="[grid-area:1/1] w-48 relative -top-12 left-[200px]">
+        <CrossedKnifes></CrossedKnifes>
+      </div>
+      <div class="[grid-area:1/1] relative cursive text-6xl rotate-[270deg] w-fit h-fit origin-top-left place-self-end translate-y-[145%] translate-x-[33%]">
+        Vollendetes Design<br>bis ins kleinste Detail
+      </div>
+    </div>
+
+    <section id="production" class="row-start-5 col-start-3 pt-40">
       <h2>Herstellung</h2>
     </section>
 
-    <section id="addons" class="row-start-5 col-start-3 pt-40">
+    <section id="addons" class="row-start-6 col-start-3 pt-40">
       <h2>Optionales Zubehör</h2>
     </section>
 
-    <section id="about" class="row-start-6 col-start-3 pt-40">
+    <section id="about" class="row-start-7 col-start-3 pt-40">
       <h2>Die Köpfe dahinter</h2>
     </section>
 
-    <section id="contact" class="row-start-7 col-start-3 pt-40">
+    <section id="contact" class="row-start-8 col-start-3 pt-40">
       <h2>Schreib uns</h2>
     </section>
 
