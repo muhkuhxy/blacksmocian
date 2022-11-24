@@ -7,11 +7,18 @@ import TechnischeDaten from '../sections/technische-daten.astro';
 import FlameLogo from '../components/BlacksmocianLogo.astro';
 import CrossedKnifes from '../components/CrossedKnifes.astro';
 import Herstellung from '../sections/herstellung.astro';
+import Masterminds from '../sections/masterminds.astro';
+
+const sections = 7
+const gutter1 = '150px'
+const gutter2 = '175px'
+const endGutter = '175px'
+const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
 ---
 <BaseLayout>
-  <div class={`[--sections:7] relative grid grid-cols-[150px,175px,auto,175px] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-16`}>
+  <div class="relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-16">
 
-    <div class="row-start-1 col-start-1 col-span-full h-min bg-coal bg-opacity-60 pl-[325px] pr-[175px] sticky top-0 z-50">
+    <div class="row-start-1 col-start-1 col-span-full h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
       <nav class="relative flex self-start items-center px-12 py-16">
         <ul class="flex justify-between w-full uppercase">
           <NavLinks></NavLinks>
@@ -30,7 +37,7 @@ import Herstellung from '../sections/herstellung.astro';
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
       viewBox="0 0 100 100">
-      <g stroke-width="4" stroke-dasharray="6,12" stroke-dashoffset="0" stroke-linecap="square">
+      <g stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
         <polyline points="0,0 0,100" vector-effect="non-scaling-stroke"/>
         <path d="M0,100 L,0 0,100" vector-effect="non-scaling-stroke"/>
       </g>
@@ -50,7 +57,7 @@ import Herstellung from '../sections/herstellung.astro';
       <picture class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
         <img class="w-full h-[80vh] object-cover" src="/images/blacksmocian-edit-1-1101.jpg">
       </picture>
-      <div class="[grid-area:1/1] w-48 relative -top-12 left-[200px]">
+      <div class="[grid-area:1/1] w-48 relative -top-12 left-[calc(var(--gutter1)+25px)]">
         <CrossedKnifes></CrossedKnifes>
       </div>
       <div class="[grid-area:1/1] relative cursive text-6xl rotate-[270deg] w-fit h-fit origin-top-left place-self-end translate-y-[145%] translate-x-[33%]">
@@ -66,8 +73,8 @@ import Herstellung from '../sections/herstellung.astro';
       <h2>Optionales Zubehör</h2>
     </section>
 
-    <section id="about" class="row-start-7 col-start-3 pt-40">
-      <h2>Die Köpfe dahinter</h2>
+    <section id="about" class="row-start-7 col-start-1 col-span-full pt-40">
+      <Masterminds></Masterminds>
     </section>
 
     <section id="contact" class="row-start-8 col-start-3 pt-40">
@@ -127,3 +134,6 @@ const intersectionObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('section[id]').forEach(section => intersectionObserver.observe(section))
 
 </script>
+
+<style define:vars={{ sections, gutter1, gutter2, endGutter, startGutter }}>
+</style>
