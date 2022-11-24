@@ -1,0 +1,36 @@
+---
+import IconArrow from "../components/IconArrow.astro";
+
+---
+
+<div class="ml-6 bg-ember px-[calc(var(--gutter2)-24px)] py-20 grid grid-rows-1 grid-cols-2 gap-x-24">
+  <form class="col-start-1 space-y-8">
+    <h2 class="steel text-9xl mb-12">Schreib uns!</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem corporis quidem a alias ullam culpa architecto provident nulla vero odit ipsum ea iste repellat, dolor, omnis eligendi voluptatum nesciunt? Quia.
+    </p>
+    <div class="flex items-start gap-x-4">
+      <input id="data-protection-accepted" class="mt-1" type="checkbox">
+      <label for="data-protection-accepted" class="text-sm">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur corrupti error sint molestias, ipsum fugiat magni maiores animi, eaque culpa voluptatibus saepe illo numquam iste.
+      </label>
+    </div>
+    <div class="relative w-fit before:absolute before:bg-white before:-inset-y-1 before:inset-x-3 hover:before:inset-0 before:transition-all">
+      <button type="submit" class="relative border-2 border-black text-black pl-8 pr-4 py-2 flex items-center justify-around gap-x-4 ">
+        <span class="relative">Abschicken</span>
+        <span class="relative w-6 origin-center -rotate-90"><IconArrow></IconArrow></span>
+      </button>
+    </div>
+  </form>
+  <div class="col-start-2 flex flex-col gap-y-4 pt-4">
+    <input class="placeholder:text-gray-200" type="text" placeholder="Name*">
+    <input class="placeholder:text-gray-200" type="text" placeholder="E-Mail-Adresse*">
+    <textarea class="placeholder:text-gray-200 h-full" placeholder="Nachricht*"></textarea>
+  </div>
+</div>
+
+<style>
+  input[type=text], textarea {
+    @apply bg-ember border-2 border-white p-4;
+  }
+</style>

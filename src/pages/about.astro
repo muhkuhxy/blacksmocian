@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+import Contact from "../sections/contact.astro"
 import Masterminds from "../sections/masterminds.astro"
 
 const gutter1 = '150px'
@@ -11,8 +12,8 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
 <BaseLayout>
   <div class="relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)]">
 
-    <section id="about" class="col-start-1 col-span-full">
-      <Masterminds></Masterminds>
+    <section id="about" class="col-start-2 col-span-2">
+      <Contact></Contact>
     </section>
 
   </div>
