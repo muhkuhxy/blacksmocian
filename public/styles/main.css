@@ -17,11 +17,11 @@
     font-family: Quicksand;
     src: url('/fonts/Quicksand.ttf');
   }
+}
 
-  :root {
-    font-family: Quicksand, sans-serif;
-    scroll-behavior: smooth;
-  }
+:root {
+  font-family: Quicksand, sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* @layer components {
@@ -44,5 +44,9 @@
 
   .cursive {
     font-family: Nickainley, serif;
+  }
+
+  .quicksand {
+    font-family: Quicksand, sans-serif;
   }
 }
