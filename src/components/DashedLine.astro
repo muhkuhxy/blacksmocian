@@ -13,7 +13,7 @@ const { id, class: cssClasses, horizontal = false } = Astro.props
   preserveAspectRatio="none"
   viewBox="0 0 100 100"
 >
-  <g stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
+  <g style="fill:none" stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
     <polyline points={`0,0 ${horizontal ? '100,0' : '0,100'}`} vector-effect="non-scaling-stroke"></polyline>
   </g>
 </svg>

@@ -30,12 +30,14 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
       </nav>
     </div>
 
-    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase">
+    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase z-10">
       Hol dir hier deinen Smoker!
     </a>
-    <DashedLine id="cta-arrow"
-      class="[grid-row:1/-2] col-start-2 w-1 h-full justify-self-start stroke-white -z-10"
-    ></DashedLine>
+    <div class="[grid-row:1/-1] relative col-start-1 justify-self-end h-full">
+      <DashedLine id="cta-arrow"
+        class="absolute left-0 w-1 h-full stroke-white z-10"
+      ></DashedLine>
+    </div>
 
     <section id="hero" class="hero row-start-1 row-span-2 col-start-3">
       <Hero></Hero>
@@ -111,38 +113,63 @@ ScrollTrigger.create({
   // markers: true
 })
 
-// const svg = document.querySelector('#cta-arrow')
-// const line = document.querySelector('#aside-line')
-// const headline = document.querySelector('#contact h2')
-// console.log({svg, line, headline})
-// if (svg && line && headline) {
-//   const { top, height } = headline.getBoundingClientRect()
-//   const { height: fullHeight } = svg.getBoundingClientRect()
-//   const y = (window.scrollY + top + height/2) / fullHeight * 100
-//   line.setAttribute('d', line.getAttribute('d').replace(/v \d+.*/, `v ${y} h 100`))
-// }
+let svg = document.querySelector('#cta-arrow') as HTMLElement
+let line = svg.querySelector('polyline')
+let target = document.querySelector('[data-cta-target]') as HTMLElement
 
-const sections = Array.from(document.querySelectorAll('section[id]')).reduce((result, element) => {
-  result[element.id] = 0
-  return result
-}, {})
-let highlightedSection = 'hero'
-const intersectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    const id = (entry.target as HTMLElement).id
-    sections[id] = entry.intersectionRatio
+ResizeObserver && new ResizeObserver(() => {
+  // console.log('resized')
+  if (svg && line && target) {
+    const height = target.offsetTop + target.clientHeight / 2
+    const width = target.offsetLeft - svg.getBoundingClientRect().x
+    svg.style.height = `${height}px`
+    svg.style.width = `${width}px`
+    line.setAttribute('points', line.getAttribute('points') + ' 100,100')
+  } else {
+    svg = document.querySelector('#cta-arrow') as HTMLElement
+    line = svg.querySelector('polyline')
+    target = document.querySelector('[data-cta-target]') as HTMLElement
+  }
+  // console.log({svg, line, target})
+}).observe(document.body)
+
+if (IntersectionObserver) {
+  const sectionElements = document.querySelectorAll('section[id]')
+  const navLinks = document.querySelectorAll('nav > ul > li') as NodeListOf<HTMLElement>
+  const sections = Array.from(sectionElements).reduce((result, element) => {
+    result[element.id] = 0
+    return result
+  }, {})
+  // console.log({sections})
+  let highlightedSection = 'hero'
+  let previousHighlighted
+  const intersectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = (entry.target as HTMLElement).id
+      sections[id] = entry.intersectionRatio
+    })
+    
+    highlightedSection = Object.entries(sections).reduce(([oldId, oldMax], [id, ratio]) => {
+      return ratio > oldMax ?
+        [id, ratio] :
+        [oldId, oldMax];
+    }, [null, 0])[0]
+
+    if (previousHighlighted !== highlightedSection) {
+      navLinks.forEach(li => {
+        if (li.classList.contains('active') && highlightedSection !== li.dataset.sectionId) {
+          li.classList.remove('active')
+        } else if (highlightedSection === li.dataset.sectionId) {
+          li.classList.add('active')
+        }
+      })
+    } 
+    previousHighlighted = highlightedSection
+  }, {
+    threshold: Array(10).fill(undefined).map((_, index) => (index+1)/10)
   })
-  highlightedSection = Object.entries(sections).reduce(([oldId, oldMax], [id, ratio]) => {
-    return ratio > oldMax ?
-      [id, ratio] :
-      [oldId, oldMax];
-  }, [null, 0])[0]
-  console.log(highlightedSection)
-}, {
-  threshold: Array(10).fill(undefined).map((_, index) => (index+1)/10)
-})
-document.querySelectorAll('section[id]').forEach(section => intersectionObserver.observe(section))
-
+  sectionElements.forEach(section => intersectionObserver.observe(section))
+}
 </script>
 
 <style define:vars={{ sections, gutter1, gutter2, endGutter, startGutter }}>

@@ -1,6 +1,6 @@
 ---
 const links = [
-  ['Home', ''],
+  ['Home', '', 'hero'],
   ['Technische Daten', 'data'],
   ['Herstellung', 'production'],
   ['Zubehör', 'addons'],
@@ -8,8 +8,8 @@ const links = [
   ['Kontakt', 'contact']
 ]
 ---
-{links.map(([title, target]) => (
-  <li class="flex flex-col items-center">
+{links.map(([title, target, id]) => (
+  <li class="flex flex-col items-center" data-section-id={id || target}>
     <a href={`#${target}`} class="leading-none">{title}</a>
     <div class="relative w-full flex justify-center">
       <hr class="absolute w-full top-0">
