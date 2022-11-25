@@ -5,17 +5,17 @@
 @layer base {
   @font-face {
     font-family: Steelworks;
-    src: url('/fonts/Steelworks vintage.otf');
+    src: url('/blacksmocian/fonts/Steelworks vintage.otf');
   }
 
   @font-face {
     font-family: Nickainley;
-    src: url('/fonts/Nickainley.otf');
+    src: url('/blacksmocian/fonts/Nickainley.otf');
   }
 
   @font-face {
     font-family: Quicksand;
-    src: url('/fonts/Quicksand.ttf');
+    src: url('/blacksmocian/fonts/Quicksand.ttf');
   }
 }
 
