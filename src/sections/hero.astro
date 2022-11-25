@@ -1,6 +1,6 @@
 ---
-import Grillzange from "../components/Grillzange.astro";
-import MadeInGermanyStamp from "../components/MadeInGermanyStamp.astro";
+import Grillzange from "../components/icons/Grillzange.astro";
+import MadeInGermanyStamp from "../components/icons/MadeInGermanyStamp.astro";
 ---
 <div class="flex w-full relative">
   <img src="/images/alvaro-reyes-zUEjNDEEca8-unsplash.jpg"
@@ -11,9 +11,8 @@ import MadeInGermanyStamp from "../components/MadeInGermanyStamp.astro";
 </div>
 <div class="grid grid-rows-1 grid-cols-2">
   <div class="flex relative justify-self-end self-center pr-12 py-8 border-y border-white">
-    <div class="relative top-0 left-0 translate-x-[-6.2rem] w-[10rem]">
-      <Grillzange></Grillzange>
-    </div>
+    <Grillzange class="relative top-0 left-0 translate-x-[-6.2rem] w-[10rem] fill-ember">
+    </Grillzange>
     <p class="text-2xl inline-block max-w-[20ch] uppercase self-center">
       Der Smoker, der 
       <span class="text-spark underline">jeden</span>
@@ -24,6 +23,6 @@ import MadeInGermanyStamp from "../components/MadeInGermanyStamp.astro";
     src="/images/blacksmocian-edit-1-1006.jpg"
     class="[grid-area:1/2] justify-self-end -z-10 -mt-24">
   <div class="[grid-area:1/2] relative w-[16rem] h-fit translate-y-[-100%] -top-16 -left-4">
-    <MadeInGermanyStamp></MadeInGermanyStamp>
+    <MadeInGermanyStamp class="fill-white stroke-white"></MadeInGermanyStamp>
   </div>
 </div>

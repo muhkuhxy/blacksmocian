@@ -1,4 +1,5 @@
 ---
+import IconArrow from "../components/icons/IconArrow.astro"
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Contact from "../sections/contact.astro"
 import Masterminds from "../sections/masterminds.astro"
@@ -10,12 +11,15 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
 ---
 
 <BaseLayout>
-  <div class="relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)]">
+  <div class="relative grid grid-rows-2 grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)]">
 
     <section id="about" class="col-start-2 col-span-2">
       <Contact></Contact>
     </section>
 
+    <a href="#" class="[grid-area:-1/1] justify-self-center self-end mb-8 border border-white py-1 px-2">
+      <IconArrow class="rotate-180 w-4 fill-white py-2"></IconArrow>
+    </a>
   </div>
 </BaseLayout>
 

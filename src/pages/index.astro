@@ -4,11 +4,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../sections/hero.astro';
 import ProduktFeatures from '../sections/produkt-features.astro';
 import TechnischeDaten from '../sections/technische-daten.astro';
-import FlameLogo from '../components/BlacksmocianLogo.astro';
-import CrossedKnifes from '../components/CrossedKnifes.astro';
+import FlameLogo from '../components/icons/FlameLogo.astro';
+import CrossedKnifes from '../components/icons/CrossedKnifes.astro';
 import Herstellung from '../sections/herstellung.astro';
 import Masterminds from '../sections/masterminds.astro';
 import Contact from '../sections/contact.astro';
+import IconArrow from '../components/icons/IconArrow.astro';
+import DashedLine from '../components/DashedLine.astro';
 
 const sections = 7
 const gutter1 = '150px'
@@ -24,25 +26,16 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
         <ul class="flex justify-between w-full uppercase">
           <NavLinks></NavLinks>
         </ul>
-        <div class="absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem]">
-          <FlameLogo></FlameLogo>
-        </div>
+        <FlameLogo class="absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem] fill-ember"></FlameLogo>
       </nav>
     </div>
 
-    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin uppercase -z-10">
+    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin uppercase">
       Hol dir hier deinen Smoker!
     </a>
-    <svg id="cta-arrow"
+    <DashedLine id="cta-arrow"
       class="[grid-row:1/-2] col-start-2 w-1 h-full justify-self-start stroke-white -z-10"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      viewBox="0 0 100 100">
-      <g stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
-        <polyline points="0,0 0,100" vector-effect="non-scaling-stroke"/>
-        <path d="M0,100 L,0 0,100" vector-effect="non-scaling-stroke"/>
-      </g>
-    </svg>
+    ></DashedLine>
 
     <section id="hero" class="hero row-start-1 row-span-2 col-start-3">
       <Hero></Hero>
@@ -59,7 +52,7 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
         <img class="w-full h-[80vh] object-cover" src="/images/blacksmocian-edit-1-1101.jpg">
       </picture>
       <div class="[grid-area:1/1] w-48 relative -top-12 left-[calc(var(--gutter1)+25px)]">
-        <CrossedKnifes></CrossedKnifes>
+        <CrossedKnifes class="fill-spark"></CrossedKnifes>
       </div>
       <div class="[grid-area:1/1] relative cursive text-6xl rotate-[270deg] w-fit h-fit origin-top-left place-self-end translate-y-[145%] translate-x-[33%]">
         Vollendetes Design<br>bis ins kleinste Detail
@@ -82,8 +75,8 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
       <Contact></Contact>
     </section>
 
-    <a href="#" class="row-start-[-1] [grid-col:1/2] justify-self-center self-end mb-8 border border-white py-1 px-2">
-      Top
+    <a href="#" class="[grid-area:9/1] justify-self-end -mt-12 mb-8 border border-white py-1 px-2">
+      <IconArrow class="rotate-180 w-4 fill-white py-2"></IconArrow>
     </a>
 </div>
 </BaseLayout>

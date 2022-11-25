@@ -1,20 +1,13 @@
 ---
+import DashedLine from "../components/DashedLine.astro";
+
 ---
 <h2 class="ml-[var(--startGutter)] mb-40 steel text-9xl">
   Die Köpfe dahinter
 </h2>
 <div class="grid grid-rows-[5rem,auto] grid-cols-[var(--startGutter),1fr,10rem,1fr,.5fr,var(--endGutter)]">
   <div class="[grid-area:2/1/auto/span_3] text-5xl flex items-center h-fit mr-4">
-    <svg
-      class="h-1 w-full justify-self-start stroke-white -z-10"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      viewBox="0 0 100 100"
-    >
-      <g stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
-        <polyline points="0,0 100,0" vector-effect="non-scaling-stroke"></polyline>
-      </g>
-    </svg>
+    <DashedLine horizontal={true} class="h-1 w-full justify-self-start stroke-white -z-10"></DashedLine>
     &nbsp;
   </div>
   <div class="[grid-area:2/4] space-y-12">
@@ -34,16 +27,8 @@
 <div class="grid grid-rows-[5rem,auto,auto,auto] grid-cols-[var(--startGutter),1fr,10rem,1fr,.5fr,var(--endGutter)] mt-16">
   <div class="[grid-area:2/2/auto/-1] steel text-spark text-5xl flex items-center">
     <div class="w-fit h-min whitespace-nowrap">Henry Schwan&nbsp;</div>
-    <svg
-      class="ml-4 h-1 w-full justify-self-start stroke-white -z-10"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="none"
-      viewBox="0 0 100 100"
-    >
-      <g stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
-        <polyline points="0,0 100,0" vector-effect="non-scaling-stroke"></polyline>
-      </g>
-    </svg>
+    <DashedLine horizontal={true} class="ml-4 h-1 w-full justify-self-start stroke-white -z-10">
+    </DashedLine>
   </div>
   <div class="[grid-area:3/2] mt-12">
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus totam praesentium iure, necessitatibus officia reprehenderit nemo nulla autem possimus dolores, saepe voluptas rem vero laudantium neque hic, amet dignissimos eum!
