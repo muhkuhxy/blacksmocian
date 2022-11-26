@@ -8,11 +8,13 @@ const { id, class: cssClasses } = Astro.props
 <svg
   id={id}
   class={cssClasses}
+  x-data
   xmlns="http://www.w3.org/2000/svg"
   preserveAspectRatio="none"
+  x-bind:style="{ width: $store.cta.width + 'px', height: $store.cta.height + 'px' }"
   viewBox="0 0 100 100"
 >
   <g style="fill:none" stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
-    <polyline points="0,0 100,0" vector-effect="non-scaling-stroke"></polyline>
+    <polyline points="0,0 0,100 100,100" vector-effect="non-scaling-stroke"></polyline>
   </g>
 </svg>

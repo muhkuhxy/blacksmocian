@@ -8,15 +8,41 @@ const links = [
   ['Kontakt', 'contact']
 ]
 ---
-{links.map(([title, target, id]) => (
-  <li class="flex flex-col items-center" data-section-id={id || target}>
-    <a href={`#${target}`} class="leading-none">{title}</a>
-    <div class="relative w-full flex justify-center">
-      <hr class="absolute w-full top-0">
-      <div class="dot absolute mx-auto border-4 rounded-[50%] mt-2"></div>
-    </div>
-  </li>
-))}
+<ul class="flex justify-between w-full uppercase font-bold">
+  {links.map(([title, target, id]) => (
+    <li class="flex flex-col items-center" data-section-id={id || target}>
+      <a href={`#${target}`} class="leading-none">{title}</a>
+      <div class="relative w-full flex justify-center">
+        <hr class="absolute w-full top-0">
+        <div class="dot absolute mx-auto border-4 rounded-[50%] mt-2"></div>
+      </div>
+    </li>
+  ))}
+</ul>
+
+<script>
+if (IntersectionObserver) {
+  const sectionElements = document.querySelectorAll('section[id]')
+  const navLinks = document.querySelectorAll('nav > ul > li')
+  const sections = Array.from(navLinks).reduce((result, element) => {
+    result[element.getAttribute('data-section-id')] = element
+    return result
+  }, {})
+
+  const intersectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id')
+      if (entry.intersectionRatio > 0) {
+        sections[id]?.classList.add('active')
+      } else {
+        sections[id]?.classList.remove('active')
+      }
+    })
+  })
+
+  sectionElements.forEach(section => intersectionObserver.observe(section))
+}
+</script>
 
 <style>
   li {
