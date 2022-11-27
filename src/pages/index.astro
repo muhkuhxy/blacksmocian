@@ -1,4 +1,5 @@
 ---
+import { Picture } from '@astrojs/image/components';
 import NavLinks from '../components/navLinks.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../sections/hero.astro';
@@ -10,19 +11,25 @@ import Herstellung from '../sections/herstellung.astro';
 import Masterminds from '../sections/masterminds.astro';
 import Contact from '../sections/contact.astro';
 import IconArrow from '../components/icons/IconArrow.astro';
-import DynamicDashedLine from '../components/DynamicDashedLine.astro';
+import CallToAction from '../components/CallToAction.astro';
+import DecorativeSmoker from '../sections/assets/post-daten-decorative-smoker.jpg'
+import DecorativeBbq from '../sections/assets/post-zubehoer-bbq.jpg'
+import Gemuese from '../components/icons/Gemuese.astro';
+import Fleisch from '../components/icons/Fleisch.astro';
+import Embers from '../sections/assets/contact-embers.jpg'
+import Tomaten from '../components/icons/Tomaten.astro';
 
-const sections = 7
+const sections = 8
 const gutter1 = '150px'
 const gutter2 = '175px'
 const endGutter = '175px'
 const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
+const sectionPaddingTop = '10rem'
 ---
 <BaseLayout>
   <div
-    class="relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-16"
+    class="relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-24"
   >
-
     <div class="row-start-1 col-start-1 col-span-full h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
       <nav class="relative px-12 py-16">
         <NavLinks></NavLinks>
@@ -30,14 +37,14 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
       </nav>
     </div>
 
-    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase z-10">
+    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase">
       Hol dir hier deinen Smoker!
     </a>
     <div class="[grid-row:1/-1] relative col-start-1 justify-self-end h-full">
-      <DynamicDashedLine
+      <CallToAction
         id="cta-arrow"
         class="absolute left-0 w-1 h-full stroke-white z-10">
-      </DynamicDashedLine>
+      </CallToAction>
     </div>
 
     <section id="hero" class="hero row-start-1 row-span-2 col-start-3">
@@ -46,35 +53,63 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
 
     <section id="data" class="row-start-3 col-start-3">
       <TechnischeDaten></TechnischeDaten>
-      <div class="h-24"></div>
+      <div class="h-36"></div>
       <ProduktFeatures></ProduktFeatures>
     </section>
 
-    <div class="row-start-4 col-start-1 col-span-4 my-64 grid grid-rows-1 grid-cols-1 relative">
-      <picture class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
-        <img class="w-full h-[80vh] object-cover" src="/blacksmocian/images/blacksmocian-edit-1-1101.jpg">
-      </picture>
+    <div class="row-start-4 col-start-1 col-span-4 mt-48 grid grid-rows-1 grid-cols-1 relative z-20">
+      <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
+        <Picture src={DecorativeSmoker} alt="" widths={[1920]} sizes="1920"></Picture>
+      </div>
       <div class="[grid-area:1/1] w-48 relative -top-12 left-[calc(var(--gutter1)+25px)]">
         <CrossedKnifes class="fill-spark"></CrossedKnifes>
       </div>
-      <div class="[grid-area:1/1] relative cursive text-6xl rotate-[270deg] w-fit h-fit origin-top-left place-self-end translate-y-[145%] translate-x-[33%]">
+      <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit origin-top-left place-self-end translate-y-[145%] translate-x-[33%]">
         Vollendetes Design<br>bis ins kleinste Detail
       </div>
     </div>
 
-    <section id="production" class="row-start-5 col-start-3 pt-40">
+    <section id="production" class="row-start-5 col-start-3 pt-[var(--sectionPaddingTop)]">
       <Herstellung></Herstellung>
     </section>
 
-    <section id="addons" class="row-start-6 col-start-3 pt-40">
-      <h2>Optionales Zubehör</h2>
+    <section id="addons" class="row-start-6 col-start-3 pt-[var(--sectionPaddingTop)]">
+      <h2 class="text-9xl steel">Optionales Zubehör</h2>
+      <div class="mt-12">
+        Coming soon ...
+      </div>
     </section>
 
-    <section id="about" class="row-start-7 col-start-1 col-span-full pt-40">
+    <div class="row-start-7 col-start-1 col-span-4 mt-48 grid grid-rows-1 grid-cols-1 relative z-20">
+      <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
+        <Picture src={DecorativeBbq} alt="" widths={[1920]} sizes="1920"></Picture>
+      </div>
+      <div class="[grid-area:1/1] w-64 relative justify-self-end -top-20 right-[var(--endGutter)]">
+        <Gemuese class="fill-white"></Gemuese>
+      </div>
+      <div class="[grid-area:1/1] w-64 relative self-end -bottom-16 left-[calc(var(--gutter1)+50px)]">
+        <Fleisch class="fill-white"></Fleisch>
+      </div>
+      <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit origin-top-left place-self-end translate-y-[145%] translate-x-[33%]">
+        Schon auf den<br>Geschmack gekommen?
+      </div>
+    </div>
+
+    <section id="about" class="row-start-8 col-start-1 col-span-full pt-[var(--sectionPaddingTop)]">
       <Masterminds></Masterminds>
     </section>
 
-    <section id="contact" class="row-start-8 col-start-2 col-span-2 pt-40">
+    <section id="contact" class="row-start-9 col-start-2 col-span-2 pt-[var(--sectionPaddingTop)]">
+      <div class="absolute inset-x-0 grid grid-rows-1 grid-cols-1 z-0">
+        <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-coal after:to-[rgba(0,0,0,0.5)] after:opacity-75">
+          <Picture src={Embers} alt="" widths={[1920]} sizes="1920"></Picture>
+        </div>
+        <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit self-center justify-self-end flex items-center translate-x-20 -translate-y-40">
+          <div class="mr-24">Heiß auf Qualität?</div>
+          <Tomaten class="fill-white w-48 rotate-90"></Tomaten>
+        </div>
+      </div>
+      <div class="h-[770px]"></div>
       <Contact></Contact>
     </section>
   </div>
@@ -100,5 +135,5 @@ const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
   </footer>
 </BaseLayout>
 
-<style define:vars={{ sections, gutter1, gutter2, endGutter, startGutter }}>
+<style define:vars={{ sections, gutter1, gutter2, endGutter, startGutter, sectionPaddingTop }}>
 </style>

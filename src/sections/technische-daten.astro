@@ -1,15 +1,19 @@
 ---
+import { Picture } from "@astrojs/image/components";
 import SmokeLines from "../components/icons/SmokeLines.astro";
-
+import Wood from './assets/daten-smoldering-fire.jpg'
+import Smoker from './assets/daten-smoker-voll.jpg'
 ---
-
-<div class="absolute inset-x-0 h-[50vh] bg-center [background-size:120%] [background-image:url(/blacksmocian/images/haris-suljic-VpjPHuFAI-4-unsplash.jpg)] -z-10">
+<div class="absolute inset-x-0 h-[var(--bgHeight)] z-20">
+  <Picture src={Wood} widths={[1920]} sizes="1920" alt="">
+  </Picture>
 </div>
-<div class="grid grid-cols-2 grid-rows-[auto,auto,1fr] grid-cols-[1.25fr,7rem,1fr,8rem] mt-[40vh] gap-y-16 [--padding:2rem]">
+<div class="relative grid grid-cols-2 grid-rows-[auto,auto,1fr] grid-cols-[1fr,7rem,1fr,8rem] mt-[var(--bgHeight)] gap-y-16 pt-20 [--padding:2rem] z-30">
   <figure class="row-start-1 row-span-full col-start-1 grid [grid-template:1fr/1fr] -mt-48 h-min">
-    <picture class="[grid-area:1/1/-1/-1] relative shadow after:absolute after:inset-0 after:top-0.5 after:bg-gradient-to-t after:from-black after:opacity-50">
-      <img src="/blacksmocian/images/smoker_features_1.jpg" class="object-cover h-[40rem]">
-    </picture>
+    <div class="[grid-area:1/1/-1/-1] relative shadow">
+      <Picture src={Smoker} widths={[600]} sizes="600" alt="">
+      </Picture>
+    </div>
     <figcaption class="[grid-area:1/1/-1/-1] place-self-end pr-[1em] translate-y-[3.2rem] cursive text-ember text-4xl">
       Gebaut um ein<br>Leben lang zu halten
     </figcaption>
@@ -69,3 +73,5 @@ import SmokeLines from "../components/icons/SmokeLines.astro";
     }
   }
 </style>
+
+<style define:vars={{ bgHeight: '663px' }}></style>
