@@ -18,3 +18,61 @@ const { id, class: cssClasses } = Astro.props
     <polyline points="0,0 0,100 100,100" vector-effect="non-scaling-stroke"></polyline>
   </g>
 </svg>
+
+<script>
+import Alpine from 'alpinejs'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+ScrollTrigger.create({
+  trigger: '#cta-arrow',
+  pin: '.pin',
+  start: 'top top',
+  end: 'bottom bottom',
+  // markers: true
+})
+
+let arrow
+let arrowHead
+
+function lookupElements() {
+  arrow = document.querySelector('#cta-arrow') as HTMLElement
+  arrowHead = document.querySelector('#cta-arrow-head') as HTMLElement
+}
+
+lookupElements()
+
+interface CtaStore {
+  resized(width: number, height: number): void
+}
+
+document.addEventListener('alpine:init', () => {
+  Alpine.store('cta', {
+    width: 0,
+    height: 0,
+    resized(width, height) {
+      this.width = width
+      this.height = height
+    }
+  })
+  updateOffsets()
+})
+
+function updateOffsets() {
+  if (arrow && arrowHead) {
+    const targetRect = arrowHead.getBoundingClientRect()
+    const arrowRect = arrow.getBoundingClientRect()
+    const height = window.scrollY + targetRect.top + targetRect.height / 2
+    const width = targetRect.left - arrowRect.left - 10;
+    (Alpine.store('cta') as CtaStore)?.resized(width, height)
+  } else {
+    lookupElements()
+  }
+}
+
+ResizeObserver && new ResizeObserver(() => {
+  updateOffsets()
+}).observe(document.body)
+</script>

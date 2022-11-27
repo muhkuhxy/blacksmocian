@@ -32,12 +32,14 @@ if (IntersectionObserver) {
   const intersectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const id = entry.target.getAttribute('id')
-      if (entry.intersectionRatio > 0) {
+      if (entry.intersectionRatio > 0.2) {
         sections[id]?.classList.add('active')
       } else {
         sections[id]?.classList.remove('active')
       }
     })
+  }, {
+    threshold: Array(10).fill(undefined).map((_, index, array) => (index+1)/array.length)
   })
 
   sectionElements.forEach(section => intersectionObserver.observe(section))
