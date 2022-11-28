@@ -1,6 +1,7 @@
 ---
 import SlideBox from "../components/SlideBox.astro";
 import 'swiper/css'
+import 'swiper/css/pagination'
 
 interface Slide {
   title: string
@@ -32,8 +33,8 @@ const slides: Slide[] = [
 ]
 ---
 <h3 class="steel text-7xl ml-[var(--startGutter)] mb-12">Produktfeatures</h3>
-<div x-data="slider" x-ref="slider" class="swiper relative overflow-x-hidden w-full h-[60vh] !z-20">
-  <div class="swiper-wrapper">
+<div class="swiper relative !overflow-x-hidden !overflow-y-visible w-full !z-20" x-data="slider" x-ref="slider">
+  <div class="swiper-wrapper h-[50vh]" x-on:interaction="swiper.autoplay.stop">
     {slides.map(({title, text, img}) => (
       <SlideBox class="swiper-slide max-w-[40%]" img={img}>
         <h4 class="steel text-5xl text-spark">{ title }</h4>
@@ -41,41 +42,41 @@ const slides: Slide[] = [
       </SlideBox>
     ))}
   </div>
+  <div class="swiper-navigation mx-auto mt-16"></div>
 </div>
 
 <script>
-import Swiper from 'swiper'
+import Swiper, { Autoplay, Pagination } from 'swiper'
 import Alpine from 'alpinejs'
 
 Alpine.data('slider', () => ({
   swiper: null,
   init() {
     this.swiper = new Swiper(this.$refs.slider, {
+      modules: [Autoplay, Pagination],
       loop: true,
       spaceBetween: 32,
       slidesPerView: 'auto',
       loopedSlides: this.$refs.slider.querySelectorAll('.swiper-slide').length,
       centeredSlides: true,
-      slideToClickedSlide: true
+      slideToClickedSlide: true,
+      pagination: {
+        el: '.swiper-navigation',
+        dynamicBullets: true,
+        clickable: true
+      },
+      autoplay: {
+        delay: 5000
+      }
     })
   }
 }))
-
-  //   setTimeout(this.fixSlider, 250)
-  // },
-  // beforeDestroy() {
-  //   // console.log('slider: destroyed')
-  //   // this.swiper?.destroy()
-  // },
-  // methods: {
-  //   fixSlider() {
-  //     const sliderBroken = this.$el.querySelector('.swiper-slide-active:last-child') != null
-  //     if (sliderBroken) {
-  //       // console.info('fixing slider')
-  //       this.swiper?.slideNext(1, false)
-  //       setTimeout(this.fixSlider, 250)
-  //     }
-  //   }
-  // }
-// })
 </script>
+
+<style>
+  .swiper-navigation {
+    --swiper-pagination-color: white;
+    --swiper-pagination-bullet-inactive-color: white;
+    --swiper-pagination-bullet-size: 1rem;
+  }
+</style>

@@ -32,7 +32,7 @@ ScrollTrigger.create({
   pin: true,
   start: 'center center',
   end: 'top center',
-  // markers: true
+  markers: true
 })
 
 let arrow: Element
@@ -75,5 +75,6 @@ function updateOffsets() {
 
 ResizeObserver && new ResizeObserver(() => {
   updateOffsets()
+  ScrollTrigger.refresh()
 }).observe(document.body)
 </script>
