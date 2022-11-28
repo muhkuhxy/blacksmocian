@@ -27,11 +27,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 ScrollTrigger.create({
-  trigger: '#cta-arrow',
-  endTrigger: '#contact',
-  pin: '.pin',
-  start: 'top top',
-  end: 'bottom bottom',
+  trigger: '#cta',
+  endTrigger: '#contact > *',
+  pin: true,
+  start: 'center center',
+  end: 'top center',
   // markers: true
 })
 

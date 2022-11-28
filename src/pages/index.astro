@@ -30,7 +30,7 @@ const gapY = '6rem'
 ---
 <BaseLayout>
   <div
-    class="relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-[var(--gapY)]"
+    class="bg-coal text-white relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-[var(--gapY)]"
   >
     <div class="[grid-area:1/1/auto/-1] h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
       <nav class="relative px-12 py-16">
@@ -39,7 +39,7 @@ const gapY = '6rem'
       </nav>
     </div>
 
-    <a href="#contact" class="[grid-area:1/1/-1] mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase z-10">
+    <a id="cta" href="#contact" class="[grid-area:1/1/-1] mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase z-10">
       Hol dir hier deinen Smoker!
     </a>
     <div class="[grid-row:1/-1] relative col-start-1 justify-self-end h-full">
@@ -121,15 +121,16 @@ const gapY = '6rem'
         <Contact></Contact>
       </section>
     </div>
+
+    <div class="[grid-area:12/1] justify-self-end mt-[calc(2rem-var(--gapY))] mr-4">
+      <a href="#" class="block mb-8 border border-white py-1 px-2">
+        <IconArrow class="rotate-180 w-4 fill-white py-2"></IconArrow>
+      </a>
+    </div>
   </div>
 
-  <div class="flex w-[var(--gutter1)] justify-end mt-8 mr-4">
-    <a href="#" class="mb-8 border border-white py-1 px-2">
-      <IconArrow class="rotate-180 w-4 fill-white py-2"></IconArrow>
-    </a>
-  </div>
 
-  <footer class="bg-white text-black py-8 space-y-8">
+  <footer class="py-8 space-y-8">
     <div class="pl-[var(--gutter1)] pr-[var(--endGutter)] flex justify-evenly">
       <div>AGBs</div>
       <div>Impressum</div>
