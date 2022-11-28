@@ -14,8 +14,8 @@ const { id, class: cssClasses } = Astro.props
   x-bind:style="{ width: $store.cta.width + 'px', height: $store.cta.height + 'px' }"
   viewBox="0 0 100 100"
 >
-  <g style="fill:none" stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
-    <polyline points="0,0 0,100 100,100" vector-effect="non-scaling-stroke"></polyline>
+  <g class="fill-none" stroke-width="4" stroke-dasharray="6,15" stroke-dashoffset="0" stroke-linecap="square">
+    <polyline class="[vector-effect:non-scaling-stroke]" points="0,0 0,100 100,100"></polyline>
   </g>
 </svg>
 
@@ -35,12 +35,12 @@ ScrollTrigger.create({
   // markers: true
 })
 
-let arrow
-let arrowHead
+let arrow: Element
+let arrowHead: Element
 
 function lookupElements() {
-  arrow = document.querySelector('#cta-arrow') as HTMLElement
-  arrowHead = document.querySelector('#cta-arrow-head') as HTMLElement
+  arrow = document.querySelector('#cta-arrow')
+  arrowHead = document.querySelector('#cta-arrow-head')
 }
 
 lookupElements()
