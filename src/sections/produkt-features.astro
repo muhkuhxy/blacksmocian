@@ -9,11 +9,26 @@ const images = [
 ---
 <h3 class="col-start-3 steel text-7xl mb-12">Produktfeatures</h3>
 <div class="col-start-3 grid grid-cols-2 gap-4">
-  {
-    images.map((img) => (
-      <SlideBox img={img}></SlideBox>
-    ))
-  }
+  <SlideBox img="blacksmocian-edit-1-1050.jpg" title="Besondere Bauform">
+    <p>
+      Im Vergleich zu den üblichen runden Smokern, bietet der Blacksmocian ein wesentlich größeres, nutzbares Volumen in Gar- und Brennkammer. Nicht nur die reine Grillfläche ist entscheidend, sondern auch die nutzbare Höhe der Grillfläche.   Aufgrund der verwendeten, besonderen Bauart des Blacksmocian gibt es keine Einschränkung der nutzbaren Höhe über der Grillfläche.
+    </p>
+  </SlideBox>
+  <SlideBox img="blacksmocian-edit-1-1075.jpg" title="Massive Bauweise">
+    <p>
+      Die aus 6mm Stahlblech gefertigte Gar- und Brennkammer gewährleistet konstante Temperaturen, bei allen Wetterlagen. Der Blacksmocian bietet somit beste Voraussetzungen für erstklassige Ergebnisse beim Smoken.
+    </p>
+  </SlideBox>
+  <SlideBox img="blacksmocian-edit-1-1049.jpg" title="Reverse Flow Garkammer">
+    <p>
+      Die Heißluft wird mittels Luftleitblech umgelenkt, sodass eine optimale Temperaturverteilung entsteht. Das bedeutet Energie- und somit Kosteneinsparung. Das Gargut wird schonend und gleichmäßig gegart. Das Luftleitblech ist leicht herausnehmbar, z.B. zur Reinigung. Es besteht aus Edelstahl und ist somit äußerst langlebig. Zudem hat es einen Ablauf zur Auffangwanne der Garkammer. 
+    </p>
+  </SlideBox>
+  <SlideBox img="blacksmocian-edit-1-1058.jpg" title="Stufenlose Temperaturregelung">
+    <p>
+      Optimal angeordnete, stufenlose Temperaturregelung mittels Schieber aus Edelstahl. Die gleichmäßig verteilte Luftzuführung unterhalb des Brennguts bewirkt beste Ergebnisse beim Garprozess.  
+    </p>
+  </SlideBox>
 </div>
 
 <script>
