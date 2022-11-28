@@ -1,14 +1,9 @@
 ---
 import { Picture } from "@astrojs/image/components";
 import SmokeLines from "../components/icons/SmokeLines.astro";
-import Wood from './assets/daten-smoldering-fire.jpg'
 import Smoker from './assets/daten-smoker-voll.jpg'
 ---
-<div class="absolute inset-x-0 h-[var(--bgHeight)] z-20">
-  <Picture src={Wood} widths={[1920]} sizes="1920" alt="">
-  </Picture>
-</div>
-<div class="relative grid grid-cols-2 grid-rows-[auto,auto,1fr] grid-cols-[1fr,7rem,1fr,8rem] mt-[var(--bgHeight)] gap-y-16 pt-20 [--padding:2rem] z-30">
+<div class="relative grid grid-cols-2 grid-rows-[auto,auto,1fr] grid-cols-[1fr,7rem,1fr,8rem] gap-y-16 xpt-[calc(5rem-var(--gapY))] [--padding:2rem] z-30">
   <figure class="row-start-1 row-span-full col-start-1 grid [grid-template:1fr/1fr] -mt-48 h-min">
     <div class="[grid-area:1/1/-1/-1] relative shadow">
       <Picture src={Smoker} widths={[600]} sizes="600" alt="">

@@ -18,26 +18,28 @@ import Gemuese from '../components/icons/Gemuese.astro';
 import Fleisch from '../components/icons/Fleisch.astro';
 import Embers from '../sections/assets/contact-embers.jpg'
 import Tomaten from '../components/icons/Tomaten.astro';
+import Wood from '../sections/assets/daten-smoldering-fire.jpg'
 
-const sections = 8
+const sections = 10
 const gutter1 = '150px'
 const gutter2 = '175px'
 const endGutter = '175px'
 const startGutter = parseInt(gutter1) + parseInt(gutter2) + 'px'
 const sectionPaddingTop = '10rem'
+const gapY = '6rem'
 ---
 <BaseLayout>
   <div
-    class="relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-24"
+    class="relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-[var(--gapY)]"
   >
-    <div class="row-start-1 col-start-1 col-span-full h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
+    <div class="[grid-area:1/1/auto/-1] h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
       <nav class="relative px-12 py-16">
         <NavLinks></NavLinks>
         <FlameLogo class="absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem] fill-ember"></FlameLogo>
       </nav>
     </div>
 
-    <a href="#contact" class="row-span-full col-start-1 mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase">
+    <a href="#contact" class="[grid-area:1/1/-1] mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase z-10">
       Hol dir hier deinen Smoker!
     </a>
     <div class="[grid-row:1/-1] relative col-start-1 justify-self-end h-full">
@@ -47,17 +49,23 @@ const sectionPaddingTop = '10rem'
       </CallToAction>
     </div>
 
-    <section id="hero" class="hero row-start-1 row-span-2 col-start-3">
+    <section id="hero" class="hero [grid-area:1/3/span_2]">
       <Hero></Hero>
     </section>
 
-    <section id="data" class="row-start-3 col-start-3">
-      <TechnischeDaten></TechnischeDaten>
-      <div class="h-36"></div>
-      <ProduktFeatures></ProduktFeatures>
-    </section>
+    <div class="[grid-area:3/1/auto/-1] relative z-20 -mb-[calc(var(--gapY)+var(--sectionPaddingTop)/2)]">
+      <Picture src={Wood} widths={[1920]} sizes="1920" alt="">
+      </Picture>
+    </div>
+    <div class="[grid-area:4/3]">
+      <section id="data" class="pt-[var(--sectionPaddingTop)]">
+        <TechnischeDaten></TechnischeDaten>
+        <div class="h-44"></div>
+        <ProduktFeatures></ProduktFeatures>
+      </section>
+    </div>
 
-    <div class="row-start-4 col-start-1 col-span-4 mt-48 grid grid-rows-1 grid-cols-1 relative z-20">
+    <div class="[grid-area:5/1/auto/-1] mt-48 grid grid-rows-1 grid-cols-1 relative z-20">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
         <Picture src={DecorativeSmoker} alt="" widths={[1920]} sizes="1920"></Picture>
       </div>
@@ -69,18 +77,18 @@ const sectionPaddingTop = '10rem'
       </div>
     </div>
 
-    <section id="production" class="row-start-5 col-start-3 pt-[var(--sectionPaddingTop)]">
+    <section id="production" class="[grid-area:6/3] mt-[5rem] pt-[var(--sectionPaddingTop)]">
       <Herstellung></Herstellung>
     </section>
 
-    <section id="addons" class="row-start-6 col-start-3 pt-[var(--sectionPaddingTop)]">
+    <section id="addons" class="[grid-area:7/3] mt-[10rem] pt-[var(--sectionPaddingTop)]">
       <h2 class="text-9xl steel">Optionales Zubehör</h2>
       <div class="mt-12">
         Coming soon ...
       </div>
     </section>
 
-    <div class="row-start-7 col-start-1 col-span-4 mt-48 grid grid-rows-1 grid-cols-1 relative z-20">
+    <div class="[grid-area:8/1/auto/-1] my-48 grid grid-rows-1 grid-cols-1 relative z-20">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
         <Picture src={DecorativeBbq} alt="" widths={[1920]} sizes="1920"></Picture>
       </div>
@@ -95,23 +103,24 @@ const sectionPaddingTop = '10rem'
       </div>
     </div>
 
-    <section id="about" class="row-start-8 col-start-1 col-span-full pt-[var(--sectionPaddingTop)]">
+    <section id="about" class="[grid-area:9/1/auto/-1] pt-[var(--sectionPaddingTop)]">
       <Masterminds></Masterminds>
     </section>
 
-    <section id="contact" class="row-start-9 col-start-2 col-span-2 pt-[var(--sectionPaddingTop)]">
-      <div class="absolute inset-x-0 grid grid-rows-1 grid-cols-1 z-0">
-        <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-coal after:to-[rgba(0,0,0,0.5)] after:opacity-75">
-          <Picture src={Embers} alt="" widths={[1920]} sizes="1920"></Picture>
-        </div>
-        <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit self-center justify-self-end flex items-center translate-x-20 -translate-y-40">
-          <div class="mr-24">Heiß auf Qualität?</div>
-          <Tomaten class="fill-white w-48 rotate-90"></Tomaten>
-        </div>
+    <div class="[grid-area:10/1/auto/-1] relative mt-[calc(var(--gapY)+var(--sectionPaddingTop))] -mb-[calc(20rem+var(--sectionPaddingTop))] grid grid-rows-1 grid-cols-1">
+      <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-coal after:to-[rgba(0,0,0,0.5)] after:opacity-75">
+        <Picture src={Embers} alt="" widths={[1920]} sizes="1920"></Picture>
       </div>
-      <div class="h-[770px]"></div>
-      <Contact></Contact>
-    </section>
+      <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit self-center justify-self-end flex items-center translate-x-20 -translate-y-40">
+        <div class="mr-24">Heiß auf Qualität?</div>
+        <Tomaten class="fill-white w-48 rotate-90"></Tomaten>
+      </div>
+    </div>
+    <div class="[grid-area:11/2/auto/span_2]">
+      <section id="contact" class="pt-[var(--sectionPaddingTop)]">
+        <Contact></Contact>
+      </section>
+    </div>
   </div>
 
   <div class="flex w-[var(--gutter1)] justify-end mt-8 mr-4">
@@ -135,5 +144,5 @@ const sectionPaddingTop = '10rem'
   </footer>
 </BaseLayout>
 
-<style define:vars={{ sections, gutter1, gutter2, endGutter, startGutter, sectionPaddingTop }}>
+<style define:vars={{ sections, gutter1, gutter2, endGutter, startGutter, sectionPaddingTop, gapY }}>
 </style>
