@@ -1,14 +1,13 @@
 ---
 interface Props {
   img: string
-  title: string
+  class?: string
 }
-const { img, title, text } = Astro.props
+const { img, class: cssClasses } = Astro.props
 ---
-<figure class="grid grid-rows-1 grid-cols-1 overflow-hidden" x-data="{ open: false }">
-  <img class="[grid-area:1/1]" src={`/blacksmocian/images/${img}`}>
+<figure class:list={[cssClasses, "grid grid-rows-1 grid-cols-1 overflow-hidden"]} x-data="{ open: false }">
+  <img class="[grid-area:1/1] object-cover w-full h-full" src={`/blacksmocian/images/${img}`}>
   <figcaption class="[grid-area:1/1] flex flex-col p-24 space-y-6 bg-black justify-center bg-opacity-80 transition-transform duration-1000 translate-y-full" x-bind:class="open && 'translate-y-0'">
-    <h4 class="steel text-5xl text-spark">{ title }</h4>
     <slot></slot>
   </figcaption>
   <button

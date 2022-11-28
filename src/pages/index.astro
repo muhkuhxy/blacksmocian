@@ -57,9 +57,11 @@ const gapY = '6rem'
       <Picture src={Wood} widths={[1920]} sizes="1920" alt="">
       </Picture>
     </div>
-    <div class="[grid-area:4/3]">
+    <div class="[grid-area:4/1/auto/-1]">
       <section id="data" class="pt-[var(--sectionPaddingTop)]">
-        <TechnischeDaten></TechnischeDaten>
+        <div class="ml-[var(--startGutter)] mr-[var(--endGutter)]">
+          <TechnischeDaten></TechnischeDaten>
+        </div>
         <div class="h-44"></div>
         <ProduktFeatures></ProduktFeatures>
       </section>

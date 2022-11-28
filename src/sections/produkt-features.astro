@@ -1,35 +1,81 @@
 ---
 import SlideBox from "../components/SlideBox.astro";
-const images = [
-  "blacksmocian-edit-1-1118.jpg",
-  "blacksmocian-edit-1-1075.jpg",
-  "blacksmocian-edit-1-1013.jpg",
-  "blacksmocian-edit-1-1045.jpg",
-];
+import 'swiper/css'
+
+interface Slide {
+  title: string
+  text: string
+  img: string
+}
+
+const slides: Slide[] = [
+  {
+    title: "Besondere Bauform",
+    img: "blacksmocian-edit-1-1050.jpg",
+    text: "Im Vergleich zu den üblichen runden Smokern, bietet der Blacksmocian ein wesentlich größeres, nutzbares Volumen in Gar- und Brennkammer. Nicht nur die reine Grillfläche ist entscheidend, sondern auch die nutzbare Höhe der Grillfläche.   Aufgrund der verwendeten, besonderen Bauart des Blacksmocian gibt es keine Einschränkung der nutzbaren Höhe über der Grillfläche."
+  },
+  {
+    title: "Massive Bauweise",
+    img: "blacksmocian-edit-1-1075.jpg",
+    text: "Die aus 6mm Stahlblech gefertigte Gar- und Brennkammer gewährleistet konstante Temperaturen, bei allen Wetterlagen. Der Blacksmocian bietet somit beste Voraussetzungen für erstklassige Ergebnisse beim Smoken."
+  },
+  {
+    title: "Reverse Flow Garkammer",
+    img: "blacksmocian-edit-1-1049.jpg",
+    text: "Die Heißluft wird mittels Luftleitblech umgelenkt, sodass eine optimale Temperaturverteilung entsteht. Das bedeutet Energie- und somit Kosteneinsparung. Das Gargut wird schonend und gleichmäßig gegart. Das Luftleitblech ist leicht herausnehmbar, z.B. zur Reinigung. Es besteht aus Edelstahl und ist somit äußerst langlebig. Zudem hat es einen Ablauf zur Auffangwanne der Garkammer. "
+  },
+  {
+    title: "Stufenlose Temperaturregelung",
+    img: "blacksmocian-edit-1-1058.jpg",
+    text: "Optimal angeordnete, stufenlose Temperaturregelung mittels Schieber aus Edelstahl. Die gleichmäßig verteilte Luftzuführung unterhalb des Brennguts bewirkt beste Ergebnisse beim Garprozess.  "
+  }
+]
 ---
-<h3 class="col-start-3 steel text-7xl mb-12">Produktfeatures</h3>
-<div class="col-start-3 grid grid-cols-2 gap-4">
-  <SlideBox img="blacksmocian-edit-1-1050.jpg" title="Besondere Bauform">
-    <p>
-      Im Vergleich zu den üblichen runden Smokern, bietet der Blacksmocian ein wesentlich größeres, nutzbares Volumen in Gar- und Brennkammer. Nicht nur die reine Grillfläche ist entscheidend, sondern auch die nutzbare Höhe der Grillfläche.   Aufgrund der verwendeten, besonderen Bauart des Blacksmocian gibt es keine Einschränkung der nutzbaren Höhe über der Grillfläche.
-    </p>
-  </SlideBox>
-  <SlideBox img="blacksmocian-edit-1-1075.jpg" title="Massive Bauweise">
-    <p>
-      Die aus 6mm Stahlblech gefertigte Gar- und Brennkammer gewährleistet konstante Temperaturen, bei allen Wetterlagen. Der Blacksmocian bietet somit beste Voraussetzungen für erstklassige Ergebnisse beim Smoken.
-    </p>
-  </SlideBox>
-  <SlideBox img="blacksmocian-edit-1-1049.jpg" title="Reverse Flow Garkammer">
-    <p>
-      Die Heißluft wird mittels Luftleitblech umgelenkt, sodass eine optimale Temperaturverteilung entsteht. Das bedeutet Energie- und somit Kosteneinsparung. Das Gargut wird schonend und gleichmäßig gegart. Das Luftleitblech ist leicht herausnehmbar, z.B. zur Reinigung. Es besteht aus Edelstahl und ist somit äußerst langlebig. Zudem hat es einen Ablauf zur Auffangwanne der Garkammer. 
-    </p>
-  </SlideBox>
-  <SlideBox img="blacksmocian-edit-1-1058.jpg" title="Stufenlose Temperaturregelung">
-    <p>
-      Optimal angeordnete, stufenlose Temperaturregelung mittels Schieber aus Edelstahl. Die gleichmäßig verteilte Luftzuführung unterhalb des Brennguts bewirkt beste Ergebnisse beim Garprozess.  
-    </p>
-  </SlideBox>
+<h3 class="steel text-7xl ml-[var(--startGutter)] mb-12">Produktfeatures</h3>
+<div x-data="slider" x-ref="slider" class="swiper relative overflow-x-hidden w-full h-[60vh] !z-20">
+  <div class="swiper-wrapper">
+    {slides.map(({title, text, img}) => (
+      <SlideBox class="swiper-slide max-w-[40%]" img={img}>
+        <h4 class="steel text-5xl text-spark">{ title }</h4>
+        <p>{text}</p>
+      </SlideBox>
+    ))}
+  </div>
 </div>
 
 <script>
+import Swiper from 'swiper'
+import Alpine from 'alpinejs'
+
+Alpine.data('slider', () => ({
+  swiper: null,
+  init() {
+    this.swiper = new Swiper(this.$refs.slider, {
+      loop: true,
+      spaceBetween: 32,
+      slidesPerView: 'auto',
+      loopedSlides: this.$refs.slider.querySelectorAll('.swiper-slide').length,
+      centeredSlides: true,
+      slideToClickedSlide: true
+    })
+  }
+}))
+
+  //   setTimeout(this.fixSlider, 250)
+  // },
+  // beforeDestroy() {
+  //   // console.log('slider: destroyed')
+  //   // this.swiper?.destroy()
+  // },
+  // methods: {
+  //   fixSlider() {
+  //     const sliderBroken = this.$el.querySelector('.swiper-slide-active:last-child') != null
+  //     if (sliderBroken) {
+  //       // console.info('fixing slider')
+  //       this.swiper?.slideNext(1, false)
+  //       setTimeout(this.fixSlider, 250)
+  //     }
+  //   }
+  // }
+// })
 </script>
