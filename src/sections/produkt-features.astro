@@ -34,7 +34,7 @@ const slides: Slide[] = [
 ---
 <h3 class="steel text-7xl ml-[var(--startGutter)] mb-12">Produktfeatures</h3>
 <div class="swiper relative !overflow-x-hidden !overflow-y-visible w-full !z-20" x-data="slider" x-ref="slider">
-  <div class="swiper-wrapper h-[50vh]" x-on:interaction="swiper.autoplay.stop">
+  <div class="swiper-wrapper !h-[50vh]" x-on:interaction="swiper.autoplay.stop">
     {slides.map(({title, text, img}) => (
       <SlideBox class="swiper-slide max-w-[40%]" img={img}>
         <h4 class="steel text-5xl text-spark">{ title }</h4>
