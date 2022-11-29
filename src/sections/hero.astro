@@ -9,25 +9,25 @@ import Smoker from './assets/hero-smoker.jpg'
   <Picture src={Sparks} alt="" sizes="30%" widths={[1000]}
     class="w-[54%] object-cover shadow">
   </Picture>
-  <header class="absolute self-center right-0">
-    <h1 class="text-[13.5rem] steel tracking-wide">Blacksmocian</h1>
+  <header class="absolute self-center right-0 max-[1380px]:mt-[-9rem]">
+    <h1 class="text-[7rem] min-[1130px]:text-[10rem] min-[1220px]:text-[11rem] min-[1380px]:text-[12.5rem] min-[1600px]:text-[13.5rem] steel tracking-wide">Blacksmocian</h1>
   </header>
 </div>
 <div class="grid grid-rows-1 grid-cols-2">
   <div class="flex relative justify-self-end self-center pr-12 py-8 border-y border-white">
-    <Grillzange class="relative top-0 left-0 translate-x-[-6.2rem] w-[10rem] fill-ember">
+    <Grillzange class="relative top-0 left-0 translate-x-[-2.2rem] min-[1220px]:translate-x-[-6.2rem] w-[10rem] fill-ember">
     </Grillzange>
-    <p class="text-2xl font-bold inline-block uppercase self-center">
+    <p class="min-[1220px]:text-2xl font-bold inline-block uppercase self-center">
       Der Smoker, der<br>
       <span class="text-spark underline">jedes</span> BBQ<br>
       veredelt
     </p>
   </div>
-  <div class="[grid-area:1/2] justify-self-end -mt-24">
+  <div class="[grid-area:1/2] justify-self-end -mt-8 min-[1380px]:-mt-24">
     <Picture src={Smoker} alt="" sizes="30%" widths={[500]} class="shadow">
     </Picture>
   </div>
-  <div class="[grid-area:1/2] relative w-[16rem] h-fit translate-y-[-100%] -top-16 -left-4">
+  <div class="[grid-area:1/2] relative xmin-[1080px]: w-[13rem] min-[1380px]:w-[16rem] h-fit translate-y-[-100%] min-[1380px]:-top-16 -left-4">
     <MadeInGermanyStamp class="fill-white stroke-white"></MadeInGermanyStamp>
   </div>
 </div>
