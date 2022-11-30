@@ -8,7 +8,7 @@ const links = [
   ['Kontakt', 'contact']
 ]
 ---
-<ul class="flex justify-between w-full uppercase font-bold">
+<ul class="hidden md:flex justify-between w-full uppercase font-bold">
   {links.map(([title, target, id]) => (
     <li class="flex flex-col items-center" data-section-id={id || target}>
       <a href={`#${target}`} class="leading-none">{title}</a>
@@ -19,6 +19,7 @@ const links = [
     </li>
   ))}
 </ul>
+<div class="md:hidden underline cursor-pointer">Menu</div>
 
 <script>
 if (IntersectionObserver) {
@@ -42,7 +43,35 @@ if (IntersectionObserver) {
     threshold: Array(10).fill(undefined).map((_, index, array) => (index+1)/array.length)
   })
 
-  sectionElements.forEach(section => intersectionObserver.observe(section))
+  let registered = false
+  let timeout: number
+  const delay = 250
+  const minWidth = 600
+
+  handleResize()
+
+  function handleResize() {
+    // console.log('resized')
+    if (window.innerWidth < minWidth) {
+      if (registered) {
+        intersectionObserver.disconnect()
+        registered = false
+        navLinks.forEach(element => element.classList.remove('active'))
+        // console.log('unregistered')
+      }
+    } else {
+      if (!registered) {
+        sectionElements.forEach(section => intersectionObserver.observe(section))
+        registered = true
+        // console.log('registered')
+      }
+    }
+  }
+
+  window.addEventListener('resize', function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(handleResize, delay);
+  });
 }
 </script>
 

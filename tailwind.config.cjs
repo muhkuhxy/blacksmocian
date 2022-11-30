@@ -10,6 +10,9 @@ module.exports = {
       },
       boxShadow: {
         DEFAULT: '10px 10px 30px black'
+      },
+      dropShadow: {
+        DEFAULT: '5px 6px 9px rgba(0,0,0,0.9)'
       }
     },
   },

@@ -26,16 +26,16 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
     class="page bg-coal text-white relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-[var(--gapY)]"
   >
     <div class="[grid-area:1/1/auto/-1] h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
-      <nav class="relative px-12 py-16">
+      <nav class="relative px-12 py-4 min-[1080px]:py-16">
         <NavLinks></NavLinks>
-        <FlameLogo class="absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem] fill-ember"></FlameLogo>
+        <FlameLogo class="hidden md:block absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem] fill-ember"></FlameLogo>
       </nav>
     </div>
 
-    <a id="cta" href="#contact" class="[grid-area:1/1/-1] mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center pr-4 rotate-180 pin font-bold uppercase z-10">
+    <a id="cta" href="#contact" class="hidden min-[560px]:block [grid-area:1/1/-1] mt-[50vh] translate-y-[-50%] [writing-mode:vertical-lr] self-start justify-self-center min-[1080px]:pr-4 rotate-180 pin font-bold uppercase z-10">
       Hol dir hier deinen Smoker!
     </a>
-    <div class="[grid-row:1/-1] relative col-start-1 justify-self-end h-full">
+    <div class="hidden min-[560px]:block [grid-row:1/-1] relative col-start-1 justify-self-end h-full">
       <CallToAction
         id="cta-arrow"
         class="absolute left-0 opacity-[.99] w-1 h-full stroke-white z-10">
@@ -101,14 +101,14 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
     <section id="about" class="[grid-area:9/1/auto/-1] pt-[var(--sectionPaddingTop)]">
       <Masterminds></Masterminds>
     </section>
-
-    <div class="[grid-area:10/1/auto/-1] relative mt-[calc(var(--gapY)+var(--sectionPaddingTop))] -mb-[calc(20rem+var(--sectionPaddingTop))] grid grid-rows-1 grid-cols-1">
+ 
+    <div class="[grid-area:10/1/auto/-1] hidden lg:grid grid-rows-1 grid-cols-1 relative mt-[calc(var(--gapY)+var(--sectionPaddingTop))] -mb-[calc(20rem+var(--sectionPaddingTop))]">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-coal after:to-[rgba(0,0,0,0.5)] after:opacity-75">
         <Picture src={Embers} alt="" widths={[1920]} sizes="1920"></Picture>
       </div>
-      <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit self-center justify-self-end flex items-center translate-x-20 -translate-y-40">
-        <div class="mr-24">Heiß auf Qualität?</div>
-        <Tomaten class="fill-white w-48 rotate-90"></Tomaten>
+      <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit self-center justify-self-end flex items-center translate-x-4 min-[1550px]:translate-x-20 -translate-y-60 min-[1220px]:-translate-y-44 min-[1900px]:-translate-y-40">
+        <div class="mr-24">Heiß auf<br class="min-[1550px]:hidden">Qualität?</div>
+        <Tomaten class="fill-white w-36 min-[1550px]:w-48 rotate-90"></Tomaten>
       </div>
     </div>
     <div class="[grid-area:11/2/auto/span_2]">
@@ -117,16 +117,15 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
       </section>
     </div>
 
-    <div class="[grid-area:12/1] justify-self-end mt-[calc(2rem-var(--gapY))] mr-4">
+    <div class="row-start-[12] col-start-3 min-[560px]:col-start-2 min-[1080px]:col-start-1 justify-self-start min-[560px]:justify-self-end mt-[calc(2rem-var(--gapY))] mr-4">
       <a href="#" class="block mb-8 border border-white py-1 px-2">
         <IconArrow class="rotate-180 w-4 fill-white py-2"></IconArrow>
       </a>
     </div>
   </div>
 
-
-  <footer class="py-8 space-y-8">
-    <div class="pl-[var(--gutter1)] pr-[var(--endGutter)] flex justify-evenly">
+  <footer class="pl-[var(--gutter1)] pr-[var(--endGutter)] py-8 space-y-8">
+    <div class="sm:flex justify-evenly">
       <div>AGBs</div>
       <div>Impressum</div>
       <div>Datenschutz</div>
@@ -141,17 +140,25 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
 </BaseLayout>
 
 <style>
-.page {
+.page, footer {
   --sections: 10;
   --sectionPaddingTop: 10rem;
   --gapY: 6rem;
   --startGutter: calc(var(--gutter1) + var(--gutter2));
+  --gutter1: 1rem;
+  --gutter2: 0;
+  --endGutter: 1rem;
 
-  /* @media (min-width: 1380px) and (max-width: 1550px) { */
+  @media (min-width: 560px) and (max-width: 950px) {
+  --gutter1: 2.5rem;
+  --gutter2: 2rem;
+  }
+
+  @media (min-width: 950px) and (max-width: 1550px) {
     --gutter1: 115px;
     --gutter2: 95px;
     --endGutter: 100px;
-  /* } */
+  }
 
   @media (min-width: 1550px) {
     --gutter1: 150px;

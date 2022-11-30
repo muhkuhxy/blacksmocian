@@ -26,7 +26,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-ScrollTrigger.create({
+const st = ScrollTrigger.create({
   trigger: '#cta',
   endTrigger: '#contact > *',
   pin: true,
@@ -75,6 +75,6 @@ function updateOffsets() {
 
 ResizeObserver && new ResizeObserver(() => {
   updateOffsets()
-  ScrollTrigger.refresh()
+  st.refresh()
 }).observe(document.body)
 </script>
