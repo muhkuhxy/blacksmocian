@@ -26,7 +26,7 @@ const slides: Slide[] = [
     text: "Die Heißluft wird mittels Luftleitblech umgelenkt, sodass eine optimale Temperaturverteilung entsteht. Das bedeutet Energie- und somit Kosteneinsparung. Das Gargut wird schonend und gleichmäßig gegart. Das Luftleitblech ist leicht herausnehmbar, z.B. zur Reinigung. Es besteht aus Edelstahl und ist somit äußerst langlebig. Zudem hat es einen Ablauf zur Auffangwanne der Garkammer. "
   },
   {
-    title: "Stufenlose Temperaturregelung",
+    title: "Stufenlose Temperatur&shy;regelung",
     img: "blacksmocian-edit-1-1058.jpg",
     text: "Optimal angeordnete, stufenlose Temperaturregelung mittels Schieber aus Edelstahl. Die gleichmäßig verteilte Luftzuführung unterhalb des Brennguts bewirkt beste Ergebnisse beim Garprozess.  "
   }
@@ -38,8 +38,8 @@ const slides: Slide[] = [
 <div class="swiper relative !overflow-x-hidden !overflow-y-visible w-full !z-20" x-data="slider" x-ref="slider">
   <div class="swiper-wrapper !h-[70vh] lg:!h-[50vh]" x-on:interaction="swiper.autoplay.stop">
     {slides.map(({title, text, img}) => (
-      <SlideBox class="swiper-slide max-w-[75%] xl:max-w-[40%]" img={img}>
-        <h4 class="steel text-3xl sm:text-5xl text-spark">{ title }</h4>
+      <SlideBox class="swiper-slide mx-2 md:mx-4 max-w-[75%] xl:max-w-[40%]" img={img}>
+        <h4 class="steel text-3xl sm:text-5xl text-spark" set:html="title"></h4>
         <p class="max-sm:text-sm">{text}</p>
       </SlideBox>
     ))}
@@ -57,7 +57,6 @@ Alpine.data('slider', () => ({
     this.swiper = new Swiper(this.$refs.slider, {
       modules: [Autoplay, Pagination],
       loop: true,
-      spaceBetween: 32,
       slidesPerView: 'auto',
       loopedSlides: this.$refs.slider.querySelectorAll('.swiper-slide').length,
       centeredSlides: true,
