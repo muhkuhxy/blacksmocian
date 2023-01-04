@@ -3,26 +3,26 @@ import { Picture } from "@astrojs/image/components";
 import SmokeLines from "../components/icons/SmokeLines.astro";
 import Smoker from './assets/daten-smoker-voll.jpg'
 ---
-<div class="relative grid grid-cols-2 grid-rows-[auto,auto,1fr] grid-cols-[1fr,7rem,1fr,7rem] gap-y-16 xpt-[calc(5rem-var(--gapY))] [--padding:2rem] z-30">
-  <figure class="row-start-1 row-span-full col-start-1 grid [grid-template:1fr/1fr] -mt-48 h-min">
+<div class="relative grid [grid-template:repeat(4,auto)/auto] sm:[grid-template:auto_auto_1fr/1fr_7rem_1fr_7rem] gap-8 md:gap-y-16 [--padding:1rem] sm:[--padding:2rem] z-30">
+  <figure class="sm:[grid-area:1/1/3/span_2] 2xl:[grid-area:1/1/-1] sm:max-md:w-3/4 grid [grid-template:1fr/1fr] sm:max-md:mb-16 md:-mt-48 h-min">
     <div class="[grid-area:1/1/-1/-1] relative shadow">
       <Picture src={Smoker} widths={[600]} sizes="600" alt="">
       </Picture>
     </div>
-    <figcaption class="[grid-area:1/1/-1/-1] place-self-end pr-[1em] translate-y-[3.2rem] cursive text-ember text-4xl">
+    <figcaption class="max-sm:hidden [grid-area:1/1/-1/-1] place-self-end pr-[1em] translate-y-[3.2rem] cursive text-ember text-4xl">
       Gebaut für<br>Generationen
     </figcaption>
   </figure>
-  <h2 class="row-start-1 col-start-1 relative col-span-3 justify-self-end steel text-9xl">
+  <h2 class="max-sm:-mt-12 max-sm:mr-4 relative sm:[grid-area:1/1/auto/-1] 2xl:[grid-area:1/1/auto/span_3] max-md:self-center justify-self-end steel text-5xl sm:text-7xl md:text-8xl xl:text-9xl drop-shadow">
     Technische Daten
-    <div class="w-16 absolute left-0 top-0 -translate-x-8 translate-y-[-150%] fill-white">
+    <div class="max-md:hidden w-16 absolute max-sm:left-8 left-0 top-0 -translate-x-8 translate-y-[-150%] fill-white">
       <SmokeLines></SmokeLines>
     </div>
   </h2>
-  <p class="row-start-2 col-start-3 pl-[var(--padding)]">
+  <p class="sm:[grid-area:2/2/auto/-1] md:[grid-area:2/3/auto/-1] xl:[grid-area:2/3] max-md:pl-[5rem] md:pl-[var(--padding)]">
     Zahlen, Daten, Fakten: Alle wissenswerten Angaben, direkt aus unserem Bauplan.
   </p>
-  <table class="row-start-3 col-start-3 border-white">
+  <table class="sm:[grid-area:3/1/auto/-1] 2xl:[grid-area:3/2/auto/span_2] 3xl:[grid-area:3/3] md:max-2xl:mt-16 md:mx-8 lg:max-2xl:mx-16 lg:max-2xl:justify-self-end w-fit border-white">
     <tbody>
       <tr>
         <th>Maße</th>
@@ -54,13 +54,6 @@ import Smoker from './assets/daten-smoker-voll.jpg'
       </tr>
     </tbody>
   </table>
-  <!-- <div class="row-start-3 col-start-4 flex flex-col justify-center items-center space-y-1">
-    {
-      [...Array(6)].map(_ => (
-        <div class="border-4 rounded-full"></div>
-      ))
-    }
-  </div> -->
 </div>
 
 <style>

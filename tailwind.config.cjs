@@ -13,7 +13,10 @@ module.exports = {
       },
       dropShadow: {
         DEFAULT: '5px 6px 9px rgba(0,0,0,0.9)'
-      }
+      },
+      screens: {
+        '3xl': '1800px'
+      },
     },
   },
   plugins: [],

@@ -28,7 +28,7 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
     <div class="[grid-area:1/1/auto/-1] h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
       <nav class="relative px-12 py-4 min-[1080px]:py-16">
         <NavLinks></NavLinks>
-        <FlameLogo class="hidden md:block absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem] fill-ember"></FlameLogo>
+        <FlameLogo class="hidden lg:block absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem] fill-ember"></FlameLogo>
       </nav>
     </div>
 
@@ -46,21 +46,21 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
       <Hero></Hero>
     </section>
 
-    <div class="[grid-area:3/1/auto/-1] relative z-20 -mb-[calc(var(--gapY)+var(--sectionPaddingTop)/2)]">
+    <div class="[grid-area:3/1/auto/-1] hidden md:block relative z-20 -mb-[calc(var(--gapY)+var(--sectionPaddingTop)/2)]">
       <Picture src={Wood} widths={[1920]} sizes="1920" alt="">
       </Picture>
     </div>
     <div class="[grid-area:4/1/auto/-1]">
-      <section id="data" class="pt-[var(--sectionPaddingTop)]">
+      <section id="data" class="md:pt-[var(--sectionPaddingTop)]">
         <div class="ml-[var(--startGutter)] mr-[var(--endGutter)]">
           <TechnischeDaten></TechnischeDaten>
         </div>
-        <div class="h-44"></div>
+        <div class="h-28 sm:h-44"></div>
         <ProduktFeatures></ProduktFeatures>
       </section>
     </div>
 
-    <div class="[grid-area:5/1/auto/-1] mt-48 grid grid-rows-1 grid-cols-1 relative z-20">
+    <!-- <div class="[grid-area:5/1/auto/-1] mt-48 grid grid-rows-1 grid-cols-1 relative z-20">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
         <Picture src={DecorativeSmoker} alt="" widths={[1920]} sizes="1920"></Picture>
       </div>
@@ -100,7 +100,7 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
 
     <section id="about" class="[grid-area:9/1/auto/-1] pt-[var(--sectionPaddingTop)]">
       <Masterminds></Masterminds>
-    </section>
+    </section> -->
  
     <div class="[grid-area:10/1/auto/-1] hidden lg:grid grid-rows-1 grid-cols-1 relative mt-[calc(var(--gapY)+var(--sectionPaddingTop))] -mb-[calc(20rem+var(--sectionPaddingTop))]">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-coal after:to-[rgba(0,0,0,0.5)] after:opacity-75">
@@ -134,7 +134,8 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
       <div>Cookie-Erklärungen</div>
     </div>
     <div class="text-center">
-      Design &amp; Programmierung mit &hearts; by <a class="underline" target="_blank" href="https://ironleaves-design.com">Ironleaves Design</a> | &copy; 2022
+      Design &amp; Programmierung mit &hearts;<br>
+      by <a class="underline" target="_blank" href="https://ironleaves-design.com">Ironleaves Design</a> | &copy; 2022
     </div>
   </footer>
 </BaseLayout>
@@ -146,7 +147,7 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
   --gapY: 6rem;
   --startGutter: calc(var(--gutter1) + var(--gutter2));
   --gutter1: 1rem;
-  --gutter2: 0;
+  --gutter2: 0rem;
   --endGutter: 1rem;
 
   @media (min-width: 560px) and (max-width: 950px) {

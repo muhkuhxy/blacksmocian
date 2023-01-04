@@ -32,17 +32,19 @@ const slides: Slide[] = [
   }
 ]
 ---
-<h3 class="steel text-7xl ml-[var(--startGutter)] mb-12">Produktfeatures</h3>
+<h3 class="steel text-5xl md:text-7xl ml-[var(--startGutter)] mb-12">
+  Produktfeatures
+</h3>
 <div class="swiper relative !overflow-x-hidden !overflow-y-visible w-full !z-20" x-data="slider" x-ref="slider">
-  <div class="swiper-wrapper !h-[50vh]" x-on:interaction="swiper.autoplay.stop">
+  <div class="swiper-wrapper !h-[70vh] lg:!h-[50vh]" x-on:interaction="swiper.autoplay.stop">
     {slides.map(({title, text, img}) => (
-      <SlideBox class="swiper-slide max-w-[40%]" img={img}>
-        <h4 class="steel text-5xl text-spark">{ title }</h4>
-        <p>{text}</p>
+      <SlideBox class="swiper-slide max-w-[75%] xl:max-w-[40%]" img={img}>
+        <h4 class="steel text-3xl sm:text-5xl text-spark">{ title }</h4>
+        <p class="max-sm:text-sm">{text}</p>
       </SlideBox>
     ))}
   </div>
-  <div class="swiper-navigation mx-auto mt-16"></div>
+  <div class="swiper-navigation relative px-4 mt-16"></div>
 </div>
 
 <script>
@@ -63,6 +65,7 @@ Alpine.data('slider', () => ({
       pagination: {
         el: '.swiper-navigation',
         dynamicBullets: true,
+        dynamicMainBullets: 3,
         clickable: true
       },
       autoplay: {
