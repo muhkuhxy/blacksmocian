@@ -26,7 +26,7 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
     class="page bg-coal text-white relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-[var(--gapY)]"
   >
     <div class="[grid-area:1/1/auto/-1] h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
-      <nav class="relative px-12 py-4 min-[1080px]:py-16">
+      <nav class="relative md:px-4 lg:px-12 py-6 pb-8 min-[1080px]:py-16">
         <NavLinks></NavLinks>
         <FlameLogo class="hidden lg:block absolute left-0 top-0 w-32 ml-[-5rem] mt-[2rem] fill-ember"></FlameLogo>
       </nav>
@@ -150,12 +150,12 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
   --gutter2: 0rem;
   --endGutter: 1rem;
 
-  @media (min-width: 560px) and (max-width: 950px) {
-  --gutter1: 2.5rem;
-  --gutter2: 2rem;
+  @media (min-width: 560px) and (max-width: 976px) {
+    --gutter1: 2.5rem;
+    --gutter2: 2rem;
   }
 
-  @media (min-width: 950px) and (max-width: 1550px) {
+  @media (min-width: 976px) and (max-width: 1550px) {
     --gutter1: 115px;
     --gutter2: 95px;
     --endGutter: 100px;
