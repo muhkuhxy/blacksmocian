@@ -1,11 +1,12 @@
 ---
+import Headline from "../components/Headline.astro";
 import IconArrow from "../components/icons/IconArrow.astro"
 ---
 <form class="relative min-[560px]:ml-6 bg-ember px-8 lg:px-[max(calc(var(--gutter2)-24px),2rem)] py-12 xl:py-20 flex flex-col lg:grid lg:grid-rows-[repeat(3,auto)] lg:grid-cols-2 gap-y-8 gap-x-24">
-  <h2 class="lg:[grid-area:1/1/auto/-1] min-[1900px]:[grid-area:1/1] min-[1550px]:-ml-12 relative steel text-7xl md:text-9xl lg:text-9xl lg:mb-12 flex items-center">
+  <Headline level={2} class="lg:[grid-area:1/1/auto/-1] min-[1900px]:[grid-area:1/1] min-[1550px]:-ml-12 relative lg:mb-12 flex items-center">
     <IconArrow id="cta-arrow-head" class="hidden min-[560px]:block relative lg:-left-4 min-[1550px]:-left-12 w-12 fill-white -rotate-90"></IconArrow>
     Schreib uns!
-  </h2>
+  </Headline>
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem corporis quidem a alias ullam culpa architecto provident nulla vero odit ipsum ea iste repellat, dolor, omnis eligendi voluptatum nesciunt? Quia.
   </p>

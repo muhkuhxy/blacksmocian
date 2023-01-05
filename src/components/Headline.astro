@@ -1,0 +1,15 @@
+---
+interface Props {
+  level: number
+  class?: string
+}
+const { level, class: classes } = Astro.props;
+const elements = {
+  2: ['h2', 'steel text-5xl sm:text-7xl md:text-8xl xl:text-9xl'],
+  3: ['h3', 'steel text-5xl md:text-7xl']
+}
+const [ Headline, defaultClasses ] = elements[level] || [ 'div', '' ]
+---
+<Headline class:list={[classes, defaultClasses]}>
+  <slot></slot>
+</Headline>

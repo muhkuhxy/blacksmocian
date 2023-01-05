@@ -1,10 +1,11 @@
 ---
 import DashedLine from "../components/DashedLine.astro";
+import Headline from "../components/Headline.astro";
 
 ---
-<h2 class="ml-[var(--startGutter)] mb-40 steel text-9xl">
+<Headline level={2} class="ml-[var(--startGutter)] mb-40">
   Die Köpfe dahinter
-</h2>
+</Headline>
 <div class="grid grid-rows-[5rem,auto] grid-cols-[var(--startGutter),1fr,10rem,1fr,.5fr,var(--endGutter)]">
   <div class="[grid-area:2/1/auto/span_3] text-5xl flex items-center h-fit mr-4">
     <DashedLine class="h-1 w-full stroke-white"></DashedLine>

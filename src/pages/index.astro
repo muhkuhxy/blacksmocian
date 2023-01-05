@@ -19,6 +19,7 @@ import Fleisch from '../components/icons/Fleisch.astro';
 import Embers from '../sections/assets/contact-embers.jpg'
 import Tomaten from '../components/icons/Tomaten.astro';
 import Wood from '../sections/assets/daten-smoldering-fire.jpg'
+import Headline from '../components/Headline.astro';
 
 ---
 <BaseLayout>
@@ -76,8 +77,8 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
       <Herstellung></Herstellung>
     </section>
 
-    <!-- section id="addons" class="[grid-area:7/3] mt-[10rem] pt-[var(--sectionPaddingTop)]">
-      <h2 class="text-9xl steel">Optionales Zubehör</h2>
+    <section id="addons" class="[grid-area:7/3] mt-[10rem] pt-[var(--sectionPaddingTop)]">
+      <Headline level={2}>Optionales Zubehör</Headline>
       <div class="mt-12">
         Coming soon ...
       </div>
@@ -87,20 +88,20 @@ import Wood from '../sections/assets/daten-smoldering-fire.jpg'
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
         <Picture src={DecorativeBbq} alt="" widths={[1920]} sizes="1920"></Picture>
       </div>
-      <div class="[grid-area:1/1] w-64 relative justify-self-end -top-20 right-[var(--endGutter)]">
+      <div class="max-[470px]:hidden [grid-area:1/1] w-32 md:w-64 relative justify-self-end -top-10 md:-top-20 right-[var(--endGutter)]">
         <Gemuese class="fill-white"></Gemuese>
       </div>
-      <div class="[grid-area:1/1] w-64 relative self-end -bottom-16 left-[calc(var(--gutter1)+50px)]">
+      <div class="max-md:hidden [grid-area:1/1] w-64 relative self-end -bottom-16 left-[calc(var(--gutter1)+50px)]">
         <Fleisch class="fill-white"></Fleisch>
       </div>
-      <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit origin-top-left place-self-end translate-y-[145%] translate-x-[33%]">
+      <div class="[grid-area:1/1] relative cursive text-2xl sm:text-4xl lg:text-6xl -rotate-90 w-fit h-fit origin-top-left place-self-end lg:max-xl:translate-y-[190%] translate-y-[145%] translate-x-[33%]">
         Schon auf den<br>Geschmack gekommen?
       </div>
     </div>
 
     <section id="about" class="[grid-area:9/1/auto/-1] pt-[var(--sectionPaddingTop)]">
       <Masterminds></Masterminds>
-    </section> -->
+    </section>
  
     <div class="[grid-area:10/1/auto/-1] hidden lg:grid grid-rows-1 grid-cols-1 relative mt-[calc(var(--gapY)+var(--sectionPaddingTop))] -mb-[calc(20rem+var(--sectionPaddingTop))]">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-coal after:to-[rgba(0,0,0,0.5)] after:opacity-75">

@@ -1,10 +1,11 @@
 ---
 import { Picture } from '@astrojs/image/components'
+import Headline from '../components/Headline.astro';
 import Wurstgabel from '../components/icons/Wurstgabel.astro'
 import Flex from './assets/herstellung-flex.jpg'
 ---
 
-<h2 class="text-5xl sm:text-7xl md:text-8xl xl:text-9xl steel">Herstellung</h2>
+<Headline level={2}>Herstellung</Headline>
 <div class="lg:flex items-start mt-12">
   <figure class="hidden min-[400px]:grid max-lg:float-right w-[50%] sm:mb-4 md:max-lg:w-1/2 lg:w-[40%] sm:ml-4 md:ml-12 lg:ml-24 [grid-template:1fr/1fr] order-2">
     <div class="[grid-area:1/1] sm:pr-12 max-md:p-4 sm:pb-[4.2rem]">
