@@ -27,7 +27,7 @@ import Headline from '../components/Headline.astro';
     class="page bg-coal text-white relative grid grid-cols-[var(--gutter1),var(--gutter2),auto,var(--endGutter)] grid-rows-[minmax(max-content,10vh),repeat(var(--sections),auto)] gap-y-[var(--gapY)]"
   >
     <div class="[grid-area:1/1/auto/-1] h-min bg-coal bg-opacity-60 pl-[var(--startGutter)] pr-[var(--endGutter)] sticky top-0 z-50">
-      <nav class="relative md:px-4 lg:px-10 py-6 md:pb-8 min-[1080px]:py-16" x-data="{ open: false }">
+      <nav class="relative md:px-2 lg:px-8 py-6 md:pb-8 min-[1080px]:py-16" x-data="{ open: false }">
         <NavLinks></NavLinks>
         <FlameLogo class="hidden lg:block absolute left-0 top-0 w-32 -ml-20 mt-8 fill-ember"></FlameLogo>
       </nav>
@@ -48,7 +48,7 @@ import Headline from '../components/Headline.astro';
     </section>
 
     <div class="[grid-area:3/1/auto/-1] hidden md:block relative z-20 -mb-[calc(var(--gapY)+var(--sectionPaddingTop)/2)]">
-      <Picture src={Wood} widths={[1920]} sizes="1920" alt="">
+      <Picture src={Wood} widths={[768, 1920]} sizes="" alt="">
       </Picture>
     </div>
     <div class="[grid-area:4/1/auto/-1]">
