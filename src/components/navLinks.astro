@@ -1,4 +1,6 @@
 ---
+import Menu from "./icons/Menu.astro";
+
 const links = [
   ['Home', '', 'hero'],
   ['Technische Daten', 'data'],
@@ -8,18 +10,21 @@ const links = [
   ['Kontakt', 'contact']
 ]
 ---
-<ul class="hidden md:flex justify-between gap-x-2 w-full uppercase font-bold">
+<div class="flex items-center md:hidden font-bold uppercase underline cursor-pointer pl-4" x-on:click="open = !open">
+  <Menu class="w-6 fill-white"></Menu>
+  <span class="ml-2">Menü</span>
+</div>
+<ul class="max-md:absolute max-md:bg-coal max-md:bg-opacity-60 max-md:mt-6 max-md:pb-6 max-md:pl-4 max-md:-translate-x-[calc(100%+var(--startGutter))] md:flex max-md:space-y-2 justify-between gap-x-2 w-full uppercase font-bold transition-all duration-700" x-bind:class="open && '![--tw-translate-x:0]'">
   {links.map(([title, target, id]) => (
-    <li class="flex flex-col items-center" data-section-id={id || target}>
-      <a href={`#${target}`} class="leading-none">{title}</a>
-      <div class="relative w-full flex justify-center">
+    <li class="flex flex-col md:items-center" data-section-id={id || target}>
+      <a href={`#${target}`} class="leading-none" x-on:click="open = false">{title}</a>
+      <div class="hidden md:flex relative w-full justify-center">
         <hr class="absolute w-full top-0">
         <div class="dot absolute mx-auto border-4 rounded-[50%] mt-2"></div>
       </div>
     </li>
   ))}
 </ul>
-<div class="md:hidden font-bold uppercase underline cursor-pointer">Menu</div>
 
 <script>
 if (IntersectionObserver) {
