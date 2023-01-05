@@ -6,41 +6,42 @@ import Headline from "../components/Headline.astro";
 <Headline level={2} class="ml-[var(--startGutter)] mb-40">
   Die Köpfe dahinter
 </Headline>
-<div class="grid grid-rows-[5rem,auto] grid-cols-[var(--startGutter),1fr,10rem,1fr,.5fr,var(--endGutter)]">
-  <div class="[grid-area:2/1/auto/span_3] text-5xl flex items-center h-fit mr-4">
+<div class="grid [grid-template:repeat(3,auto)/var(--startGutter)_auto_auto_var(--endGutter)] md:[grid-template:5rem_auto/var(--startGutter)_1fr_5rem_1fr_.5fr_var(--endGutter)] lg:[grid-template:5rem_auto/var(--startGutter)_1fr_10rem_1fr_.5fr_var(--endGutter)] max-md:gap-y-8">
+  <div class="[grid-area:1/1/auto/span_2] md:[grid-area:2/1/auto/span_3] text-3xl sm:text-5xl flex items-center h-fit mr-2 md:mr-4">
     <DashedLine class="h-1 w-full stroke-white"></DashedLine>
     &nbsp;
   </div>
-  <div class="[grid-area:2/4] space-y-12">
-    <div class="steel text-spark text-5xl">Tarek Gerhards</div>
+  <div class="justify-self-end md:hidden [grid-area:1/3] steel text-spark text-4xl sm:text-5xl">Tarek Gerhards</div>
+  <div class="[grid-area:3/2/auto/span_2] md:[grid-area:2/4] md:space-y-12 max-md:w-3/4 max-md:justify-self-end">
+    <div class="max-md:hidden steel text-spark text-5xl">Tarek Gerhards</div>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci iure nobis fugiat vitae recusandae explicabo nam nostrum molestiae, laudantium a exercitationem qui voluptas. Esse rerum nihil consequatur minima. Corporis, ea.</p>
   </div>
-  <figure class="[grid-area:1/2/span_2] relative">
+  <figure class="[grid-area:2/2/auto/span_2] md:[grid-area:1/2/span_2] max-md:w-3/4 relative h-fit">
     <img
       class="shadow w-full object-cover"
       src="/blacksmocian/images/nicholas-peloso-BMGZM7g1lBA-unsplash.jpg"
       alt=""
     />
-    <figcaption class="absolute -right-10 -bottom-6 cursive text-ember text-4xl">Der Mastermind</figcaption>
+    <figcaption class="absolute -right-10 -bottom-4 sm:-bottom-6 cursive text-ember text-3xl sm:text-4xl">Der Mastermind</figcaption>
   </figure>
 </div>
 
-<div class="grid grid-rows-[5rem,auto,auto,auto] grid-cols-[var(--startGutter),1fr,10rem,1fr,.5fr,var(--endGutter)] mt-16">
-  <div class="[grid-area:2/2/auto/-1] steel text-spark text-5xl flex items-center">
+<div class="grid [grid-template:repeat(3,auto)/var(--startGutter)_auto_auto_var(--endGutter)] md:[grid-template:5rem_repeat(3,auto)/var(--startGutter)_1fr_5rem_1fr_.5fr_var(--endGutter)] lg:[grid-template:5rem_repeat(3,auto)/var(--startGutter)_1fr_10rem_1fr_.5fr_var(--endGutter)] mt-16 max-md:gap-y-8">
+  <div class="[grid-area:1/2/auto/span_2] md:[grid-area:2/2/auto/-1] steel text-spark text-4xl sm:text-5xl flex items-center">
     <div class="w-fit h-min whitespace-nowrap">Henry Schwan&nbsp;</div>
-    <DashedLine class="ml-4 h-1 w-full stroke-white">
+    <DashedLine class="ml-2 md:ml-4 h-1 w-full stroke-white">
     </DashedLine>
   </div>
-  <div class="[grid-area:3/2] mt-12">
+  <div class="[grid-area:3/2/auto/span_2] md:[grid-area:3/2] max-md:w-3/4 md:mt-12">
     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus totam praesentium iure, necessitatibus officia reprehenderit nemo nulla autem possimus dolores, saepe voluptas rem vero laudantium neque hic, amet dignissimos eum!
   </div>
-  <figure class="[grid-area:1/4/-1] relative">
+  <figure class="[grid-area:2/2/auto/span_2] md:[grid-area:1/4/-1] max-md:justify-self-end max-md:w-3/4 relative h-fit">
     <img
       class="shadow w-full object-cover h-[500px]"
       src="/blacksmocian/images/zach-reiner-WPRj6VOe3O8-unsplash.jpg"
       alt=""
     />
-    <figcaption class="absolute -left-12 -bottom-6 cursive text-ember text-4xl">Das Zahlengenie</figcaption>
+    <figcaption class="absolute -left-12 -bottom-4 sm:-bottom-6 cursive text-ember text-3xl sm:text-4xl">Das Zahlengenie</figcaption>
   </figure>
 </div>
 
