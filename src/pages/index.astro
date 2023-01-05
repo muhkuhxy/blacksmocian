@@ -103,11 +103,11 @@ import Headline from '../components/Headline.astro';
       <Masterminds></Masterminds>
     </section>
  
-    <div class="[grid-area:10/1/auto/-1] hidden lg:grid grid-rows-1 grid-cols-1 relative mt-[calc(var(--gapY)+var(--sectionPaddingTop))] -mb-[calc(20rem+var(--sectionPaddingTop))]">
+    <div class="[grid-area:10/1/auto/-1] hidden md:grid grid-rows-1 grid-cols-1 relative mt-[calc(var(--gapY)+var(--sectionPaddingTop))] -mb-[calc(20rem+var(--sectionPaddingTop))]">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-coal after:to-[rgba(0,0,0,0.5)] after:opacity-75">
         <Picture src={Embers} alt="" widths={[1920]} sizes="1920"></Picture>
       </div>
-      <div class="[grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit self-center justify-self-end flex items-center translate-x-4 min-[1550px]:translate-x-20 -translate-y-60 min-[1220px]:-translate-y-44 min-[1900px]:-translate-y-40">
+      <div class="hidden lg:flex [grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit self-center justify-self-end flex items-center translate-x-4 min-[1550px]:translate-x-20 -translate-y-60 min-[1220px]:-translate-y-44 min-[1900px]:-translate-y-40">
         <div class="mr-24">Heiß auf<br class="min-[1550px]:hidden">Qualität?</div>
         <Tomaten class="fill-white w-36 min-[1550px]:w-48 rotate-90"></Tomaten>
       </div>
