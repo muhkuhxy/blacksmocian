@@ -4,23 +4,23 @@ import Wurstgabel from '../components/icons/Wurstgabel.astro'
 import Flex from './assets/herstellung-flex.jpg'
 ---
 
-<h2 class="text-9xl steel">Herstellung</h2>
-<div class="flex gap-x-24 mt-12">
-  <div class="pl-32 w-[50%] space-y-6">
-    <p class="text-2xl font-bold uppercase pb-6">
+<h2 class="text-5xl sm:text-7xl md:text-8xl xl:text-9xl steel">Herstellung</h2>
+<div class="lg:flex items-start mt-12">
+  <figure class="hidden min-[400px]:grid max-lg:float-right w-[50%] sm:mb-4 md:max-lg:w-1/2 lg:w-[40%] sm:ml-4 md:ml-12 lg:ml-24 [grid-template:1fr/1fr] order-2">
+    <div class="[grid-area:1/1] sm:pr-12 max-md:p-4 sm:pb-[4.2rem]">
+      <Picture src={Flex} alt="" widths={[600]} sizes="600" class="shadow">
+      </Picture>
+    </div>
+    <div class="max-sm:hidden [grid-area:1/1] relative w-24 sm:w-48 justify-self-end sm:top-[-11rem]">
+      <Wurstgabel class="fill-spark"></Wurstgabel>
+    </div>
+    <figcaption class="hidden sm:block [grid-area:1/1] place-self-end text-5xl text-ember cursive">Mit Herzblut<br>geschmiedet</figcaption>
+  </figure>
+  <div class="xl:pl-32 lg:w-[50%] space-y-6">
+    <p class="sm:text-xl md:text-2xl font-bold uppercase pb-6">
       Lorem ipsum dolor sit amet consectetur adipisicing.
     </p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, illum accusamus cupiditate recusandae illo nemo quaerat doloribus aliquam ullam tempore consequuntur repellat non perferendis. Dolores quas ratione eum doloremque inventore.</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, illum accusamus cupiditate recusandae illo nemo quaerat doloribus aliquam ullam tempore consequuntur repellat non perferendis. Dolores quas ratione eum doloremque inventore.</p>
   </div>
-  <figure class="w-[40%] grid grid-rows-1 grid-cols-1 grow-0">
-    <div class="[grid-area:1/1] pr-12 pb-[4.2rem]">
-      <Picture src={Flex} alt="" widths={[600]} sizes="600" class="shadow">
-      </Picture>
-    </div>
-    <div class="[grid-area:1/1] relative w-48 justify-self-end top-[-11rem]">
-      <Wurstgabel class="fill-spark"></Wurstgabel>
-    </div>
-    <figcaption class="[grid-area:1/1] place-self-end text-5xl text-ember cursive">Mit Herzblut<br>geschmiedet</figcaption>
-  </figure>
 </div>
