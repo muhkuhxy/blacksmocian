@@ -47,36 +47,37 @@ if (IntersectionObserver) {
   }, {
     threshold: Array(10).fill(undefined).map((_, index, array) => (index+1)/array.length)
   })
+  sectionElements.forEach(section => intersectionObserver.observe(section))
 
-  let registered = false
-  let timeout: number
-  const delay = 250
-  const minWidth = 600
+  // let registered = false
+  // let timeout: number
+  // const delay = 250
+  // const minWidth = 600
 
-  handleResize()
+  // handleResize()
 
-  function handleResize() {
+  // function handleResize() {
     // console.log('resized')
-    if (window.innerWidth < minWidth) {
-      if (registered) {
-        intersectionObserver.disconnect()
-        registered = false
-        navLinks.forEach(element => element.classList.remove('active'))
-        // console.log('unregistered')
-      }
-    } else {
-      if (!registered) {
-        sectionElements.forEach(section => intersectionObserver.observe(section))
-        registered = true
+    // if (window.innerWidth < minWidth) {
+    //   if (registered) {
+    //     intersectionObserver.disconnect()
+    //     registered = false
+    //     navLinks.forEach(element => element.classList.remove('active'))
+    //     // console.log('unregistered')
+    //   }
+    // } else {
+      // if (!registered) {
+        // sectionElements.forEach(section => intersectionObserver.observe(section))
+        // registered = true
         // console.log('registered')
-      }
-    }
-  }
+      // }
+    // }
+  // }
 
-  window.addEventListener('resize', function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(handleResize, delay);
-  });
+  // window.addEventListener('resize', function() {
+  //   clearTimeout(timeout);
+  //   timeout = setTimeout(handleResize, delay);
+  // });
 }
 </script>
 
