@@ -37,15 +37,15 @@ const slides: Slide[] = [
   Produktfeatures
 </Headline>
 <div class="swiper relative !overflow-x-hidden !overflow-y-visible w-full !z-20" x-data="slider" x-ref="slider">
-  <div class="swiper-wrapper !h-[70vh] lg:!h-[50vh]" x-on:interaction="swiper.autoplay.stop">
+  <div class="swiper-wrapper !h-[75vh] md:!-[60vh] lg:landscape:!h-[50vh]" x-on:interaction="swiper.autoplay.stop">
     {slides.map(({title, text, img}) => (
-      <SlideBox class="swiper-slide mx-2 md:mx-4 max-w-[75%] xl:max-w-[40%]" img={img}>
+      <SlideBox class="swiper-slide mx-2 md:mx-4 max-w-[75%] md:max-w-[60%] lg:landscape:max-w-[50%]" img={`/blacksmocian/images/${img}`}>
         <h4 class="steel text-3xl sm:text-5xl text-spark" set:html="title"></h4>
         <p class="max-sm:text-sm">{text}</p>
       </SlideBox>
     ))}
   </div>
-  <div class="swiper-navigation relative px-4 mt-16"></div>
+  <div class="swiper-navigation relative px-4 mt-16 !w-fit mx-auto"></div>
 </div>
 
 <script>
@@ -57,15 +57,15 @@ Alpine.data('slider', () => ({
   init() {
     this.swiper = new Swiper(this.$refs.slider, {
       modules: [Autoplay, Pagination],
-      loop: true,
+      // loop: true,
       slidesPerView: 'auto',
-      loopedSlides: this.$refs.slider.querySelectorAll('.swiper-slide').length,
+      // loopedSlides: this.$refs.slider.querySelectorAll('.swiper-slide').length,
       centeredSlides: true,
       slideToClickedSlide: true,
       pagination: {
         el: '.swiper-navigation',
-        dynamicBullets: true,
-        dynamicMainBullets: 3,
+        // dynamicBullets: true,
+        // dynamicMainBullets: 1,
         clickable: true
       },
       autoplay: {
