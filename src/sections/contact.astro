@@ -16,12 +16,12 @@ import IconArrow from "../components/icons/IconArrow.astro"
     <textarea class="placeholder:text-gray-200 h-full" placeholder="Nachricht*"></textarea>
   </div>
   <div class="lg:[grid-area:3/1] space-y-8">
-    <div class="flex items-start gap-x-4">
-      <input id="data-protection-accepted" class="mt-1" type="checkbox">
-      <label for="data-protection-accepted" class="text-sm">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur corrupti error sint molestias, ipsum fugiat magni maiores animi, eaque culpa voluptatibus saepe illo numquam iste.
-      </label>
-    </div>
+    <label for="data-protection-accepted" class="grid grid-cols-[1em_auto] gap-x-4 text-sm">
+      <input id="data-protection-accepted" type="checkbox">
+      <span>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur corrupti error sint molestias, ipsum fugiat magni maiores animi, eaque culpa voluptatibus saepe illo numquam iste.
+      </span>
+    </label>
     <div class="relative w-fit h-fit before:absolute before:bg-white before:-inset-y-1 before:inset-x-3 hover:before:inset-0 before:transition-all">
       <button type="submit" class="relative border-2 border-black text-black pl-8 pr-4 py-2 flex items-center justify-around gap-x-4">
         <span class="relative font-bold">Abschicken</span>
@@ -33,6 +33,24 @@ import IconArrow from "../components/icons/IconArrow.astro"
 
 <style>
   input[type=text], textarea {
-    @apply bg-ember border-2 border-white p-4;
+    @apply bg-ember border-2 border-white m-0;
+    @apply p-4 w-full;
+  }
+
+  input[type=checkbox] {
+    @apply bg-ember border-2 border-white m-0;
+    @apply appearance-none text-current w-[1.15em] h-[1.15em] translate-y-[3px] grid place-content-center;
+
+    font: inherit;
+
+    &::before {
+      content: '';
+      @apply w-[0.6em] h-[0.6em] transition-all scale-0;
+      box-shadow: inset 1em 1em white;
+    }
+
+    &:checked::before {
+      @apply scale-100;
+    }
   }
 </style>
