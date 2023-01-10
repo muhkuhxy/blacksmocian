@@ -4,10 +4,10 @@ import Headline from "../components/Headline.astro";
 import SmokeLines from "../components/icons/SmokeLines.astro";
 import Smoker from './assets/daten-smoker-voll.jpg'
 ---
-<div class="relative grid [grid-template:repeat(4,auto)/auto] sm:[grid-template:auto_auto_1fr/1fr_7rem_1fr_7rem] gap-8 md:gap-y-16 [--padding:1rem] sm:[--padding:2rem] z-30">
-  <figure class="sm:[grid-area:1/1/3/span_2] 2xl:[grid-area:1/1/-1] sm:max-md:w-3/4 grid [grid-template:1fr/1fr] sm:max-md:mb-16 md:-mt-48 h-min">
+<div class="relative grid [grid-template:repeat(4,auto)/auto] sm:[grid-template:auto_auto_1fr/1fr_7rem_1fr_7rem] gap-8 md:gap-y-16 [--padding:1rem] sm:[--padding:2rem] z-30 max-sm:mt-[calc(135%-var(--navbarPad))]">
+  <figure class="sm:[grid-area:1/1/3/span_2] 2xl:[grid-area:1/1/-1] sm:max-md:w-3/4 grid [grid-template:1fr/1fr] sm:max-md:mb-16 max-sm:mt-[calc(-135%+var(--navbarPad))] md:-mt-48 h-min">
     <div class="[grid-area:1/1/-1/-1] relative shadow">
-      <Picture src={Smoker} widths={[600]} sizes="50%" alt="">
+      <Picture src={Smoker} widths={[600,800]} sizes="(max-width: 640px) 90vw, 50vw" alt="">
       </Picture>
     </div>
     <figcaption class="max-sm:hidden [grid-area:1/1/-1/-1] place-self-end pr-[1em] translate-y-[3.2rem] cursive text-ember text-4xl">
@@ -70,5 +70,3 @@ import Smoker from './assets/daten-smoker-voll.jpg'
     }
   }
 </style>
-
-<style define:vars={{ bgHeight: '663px' }}></style>

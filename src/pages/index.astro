@@ -47,23 +47,23 @@ import Headline from '../components/Headline.astro';
       <Hero></Hero>
     </section>
 
-    <div class="[grid-area:3/1/auto/-1] hidden md:block relative z-20 -mb-[calc(var(--gapY)+var(--sectionPaddingTop)/2)]">
-      <Picture src={Wood} widths={[768, 1920]} sizes="" alt="">
+    <div class="[grid-area:3/1/auto/-1] hidden md:block relative z-20 -mb-[calc(var(--gapY)+var(--navbarPad)/2)]">
+      <Picture src={Wood} widths={[768, 1920]} sizes="100vw" alt="">
       </Picture>
     </div>
-    <div class="[grid-area:4/1/auto/-1]">
-      <section id="data" class="md:pt-[var(--sectionPaddingTop)]">
+    <div class="[grid-area:4/1/auto/-1] sm:max-md:[grid-area:3/1/span_2/-1]">
+      <section id="data" class="sm:pt-[calc(var(--navbarPad)-2rem)] md:pt-[var(--navbarPad)]">
         <div class="ml-[var(--startGutter)] mr-[var(--endGutter)]">
           <TechnischeDaten></TechnischeDaten>
         </div>
-        <div class="h-28 sm:h-44"></div>
+        <div class="h-20 sm:h-24 lg:h-44"></div>
         <ProduktFeatures></ProduktFeatures>
       </section>
     </div>
 
-    <div class="[grid-area:5/1/auto/-1] mt-48 grid [grid-template:1/1] relative z-20">
+    <div class="[grid-area:5/1/auto/-1] mt-[var(--navbarPad)] grid [grid-template:1/1] relative z-20">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
-        <Picture src={DecorativeSmoker} alt="" widths={[1920]} sizes="1920"></Picture>
+        <Picture src={DecorativeSmoker} alt="" widths={[320, 640, 1024, 1920]} sizes="100vw"></Picture>
       </div>
       <div class="[grid-area:1/1] w-20 sm:w-36 lg:w-48 relative -top-12 left-[calc(var(--gutter1)+25px)]">
         <CrossedKnifes class="fill-spark"></CrossedKnifes>
@@ -73,20 +73,20 @@ import Headline from '../components/Headline.astro';
       </div>
     </div>
 
-    <section id="production" class="[grid-area:6/3] mt-[5rem] pt-[var(--sectionPaddingTop)]">
+    <section id="production" class="[grid-area:6/3] pt-[var(--navbarPad)]">
       <Herstellung></Herstellung>
     </section>
 
-    <section id="addons" class="[grid-area:7/3] mt-[10rem] pt-[var(--sectionPaddingTop)]">
+    <section id="addons" class="[grid-area:7/3] pt-[var(--navbarPad)]">
       <Headline level={2}>Optionales Zubehör</Headline>
       <div class="mt-12">
         Coming soon ...
       </div>
     </section>
 
-    <div class="[grid-area:8/1/auto/-1] my-48 grid grid-rows-1 grid-cols-1 relative z-20">
+    <div class="[grid-area:8/1/auto/-1] md:py-16 grid grid-rows-1 grid-cols-1 relative z-20">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-black after:opacity-25">
-        <Picture src={DecorativeBbq} alt="" widths={[1920]} sizes="1920"></Picture>
+        <Picture src={DecorativeBbq} alt="" widths={[320, 640, 1024, 1920]} sizes="100vw"></Picture>
       </div>
       <div class="max-[470px]:hidden [grid-area:1/1] w-32 md:w-64 relative justify-self-end -top-10 md:-top-20 right-[var(--endGutter)]">
         <Gemuese class="fill-white"></Gemuese>
@@ -99,21 +99,21 @@ import Headline from '../components/Headline.astro';
       </div>
     </div>
 
-    <section id="about" class="[grid-area:9/1/auto/-1] pt-[var(--sectionPaddingTop)]">
+    <section id="about" class="[grid-area:9/1/auto/-1] pt-[var(--navbarPad)]">
       <Masterminds></Masterminds>
     </section>
  
-    <div class="[grid-area:10/1/auto/-1] hidden md:grid grid-rows-1 grid-cols-1 relative mt-[calc(var(--gapY)+var(--sectionPaddingTop))] -mb-[calc(20rem+var(--sectionPaddingTop))]">
+    <div class="[grid-area:10/1/auto/-1] hidden md:grid grid-rows-1 grid-cols-1 relative lg:mt-[calc(var(--gapY)+var(--navbarPad))] -mb-[calc(20rem+var(--navbarPad))]">
       <div class="[grid-area:1/1] relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-coal after:to-[rgba(0,0,0,0.5)] after:opacity-75">
-        <Picture src={Embers} alt="" widths={[1920]} sizes="1920"></Picture>
+        <Picture src={Embers} alt="" widths={[320, 640, 1024, 1920]} sizes="100vw"></Picture>
       </div>
       <div class="hidden lg:flex [grid-area:1/1] relative cursive text-6xl -rotate-90 w-fit h-fit self-center justify-self-end flex items-center translate-x-4 min-[1550px]:translate-x-20 -translate-y-60 min-[1220px]:-translate-y-44 min-[1900px]:-translate-y-40">
         <div class="mr-24">Heiß auf<br class="min-[1550px]:hidden">Qualität?</div>
         <Tomaten class="fill-white w-36 min-[1550px]:w-48 rotate-90"></Tomaten>
       </div>
     </div>
-    <div class="[grid-area:11/2/auto/span_2]">
-      <section id="contact" class="pt-[var(--sectionPaddingTop)]">
+    <div class="[grid-area:10/2/span_2/span_2] md:[grid-area:11/2/auto/span_2]">
+      <section id="contact" class="pt-[var(--navbarPad)]">
         <Contact></Contact>
       </section>
     </div>
@@ -144,16 +144,28 @@ import Headline from '../components/Headline.astro';
 <style>
 .page, footer {
   --sections: 10;
-  --sectionPaddingTop: 10rem;
-  --gapY: 6rem;
+  --navbarPad: 6rem;
+  --gapY: 2rem;
   --startGutter: calc(var(--gutter1) + var(--gutter2));
   --gutter1: 1rem;
   --gutter2: 0rem;
   --endGutter: 1rem;
 
+  @media (min-width: 560px) {
+    --gapY: 4rem;
+  }
+
+  @media (min-width: 640px) {
+    --gapY: 6rem;
+  }
+
   @media (min-width: 560px) and (max-width: 976px) {
     --gutter1: 2.5rem;
     --gutter2: 2rem;
+  }
+
+  @media (min-width: 1080px) {
+    --navbarPad: 10rem;
   }
 
   @media (min-width: 976px) and (max-width: 1550px) {
